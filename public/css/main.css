@@ -1,0 +1,106 @@
+@font-face {
+    font-family: Roboto;
+    src: url('/fonts/Roboto-Regular.ttf');
+}
+
+.wrap {
+    margin: 0 auto;
+    font-family: Roboto;
+}
+
+.navigation .nav-item .nav-link {
+    color: black!important;
+}
+
+.navigation .nav-item .nav-link:hover {
+    color: #4677AB!important;
+}
+
+.navigation .nav-item .active {
+    color: #4677AB!important;
+}
+
+
+/* Carousel Main */
+
+#carouselMain .carousel-inner {
+    padding: 1em;
+    display: flex;
+}
+
+#carouselMain .carousel-inner .carousel-item {
+    margin: 0;
+    flex: 0 0 14.2857142857%;
+    display: block;
+}
+
+#carouselMain .carousel-inner .carousel-item .item {
+    width: 70%;
+}
+
+#carouselMain .carousel-inner .carousel-item .item .img-wrapper {
+    background-color: #F5F6F7;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#carouselMain .carousel-inner .carousel-item .item .img-wrapper img {
+    /* will fix */
+    width: 200px!important;
+    max-height: 130px;
+    padding: 10px;
+}
+
+#carouselMain .carousel-inner .carousel-item .item .img-wrapper a img {
+    width: 200px!important;
+    max-height: 130px;
+    padding: 10px;
+}
+
+#carouselMain .carousel-control-prev,
+#carouselMain .carousel-control-next {
+    background-color: #BACEE3;
+    color: #152433;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* Carousel BG */
+
+#carouselBg .carousel-indicators button {
+    background-color: #4677AB;
+}
+
+.fan {
+    background-color: #EAEDEF;
+    height: 888px;
+}
+
+.btn-list {
+    text-align: center;
+    margin-top: 3rem!important;
+}
+
+
+/* End Carousel */
+
+.commitment-item {
+    background-color: #EEF3F8;
+    border: 0;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #315377;
+    max-height: 291px;
+}
