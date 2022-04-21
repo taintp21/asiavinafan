@@ -10,6 +10,7 @@
 
 .navigation .nav-item .nav-link {
     color: black!important;
+    transition-property: none;
 }
 
 .navigation .nav-item .nav-link:hover {
@@ -18,6 +19,139 @@
 
 .navigation .nav-item .active {
     color: #4677AB!important;
+}
+
+button,
+input {
+    overflow: visible;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.fs-13 {
+    font-size: 13px !important;
+}
+
+.fs-20 {
+    font-size: 20px !important;
+}
+
+.fs-30 {
+    font-size: 30px !important;
+}
+
+.ml-10 {
+    margin-left: 10px !important;
+}
+
+.mt-50 {
+    margin-top: 50px !important;
+}
+
+.mb-20 {
+    margin-bottom: 20px !important;
+}
+
+.mb-30 {
+    margin-bottom: 30px !important;
+}
+
+.mb-100 {
+    margin-bottom: 100px !important;
+}
+
+.ta-c {
+    text-align: center !important;
+}
+
+.c-theme {
+    color: #4677AB !important;
+}
+
+.fs-15 {
+    font-size: 15px !important;
+}
+
+a {
+    outline: none;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.hr.hr-white {
+    background: #fff;
+}
+
+.hr {
+    height: 1px;
+    background: #ccc;
+    margin: 30px 0px;
+}
+
+
+/* Title */
+
+.title-style-1 {
+    position: relative;
+    text-transform: uppercase;
+    text-align: center;
+    color: #315377;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+}
+
+.title-style-1:before,
+.title-style-1:after {
+    content: '';
+    display: inline-block;
+    background: url(https://quatvietnam.com.vn/wp-content/themes/asiavina/assets/images/air.png) no-repeat center bottom;
+    height: 40px;
+    width: 30px;
+    background-size: 100%;
+    margin: 0px 10px;
+}
+
+.title-style-2 {
+    position: relative;
+    text-align: center;
+    padding: 0px;
+}
+
+.title-style-3 .content,
+.title-style-2 .content {
+    font-size: 22px;
+    font-weight: bold;
+    background: #fff;
+    color: #749CC6;
+    padding: 0px 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.title-style-3:after,
+.title-style-2:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    background: #749CC6;
+    height: 1px;
+    width: 100%;
+}
+
+.title-style-3,
+.title-style-2 {
+    position: relative;
+    text-align: center;
+    padding: 0px;
 }
 
 
@@ -97,10 +231,506 @@
     padding: 1rem;
 }
 
+.commitment-item p {
+    font-size: 12px;
+}
+
+
+/* Agents */
+
+.retailers {
+    padding: 50px 0px;
+}
+
+.retailer .title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.retailer .info {
+    display: flex;
+    font-size: 13px;
+    color: #999;
+}
+
+.retailer .info i {
+    color: #4677AB;
+    font-size: 18px;
+    width: 30px;
+}
+
+
+/* Customer Service */
+
+.topics,
+.products {
+    margin-bottom: 100px;
+}
+
+.topics .topic {
+    border: 1px solid #749CC6;
+    border-radius: 5px;
+    padding: 20px 10px;
+    text-align: center;
+    height: 100%;
+    font-size: 14px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+.topics .topic:hover {
+    background: #BACEE3;
+}
+
+.topics .topic .thumbnail {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.topics .topic .thumbnail img {
+    height: 100%;
+    width: auto;
+}
+
+.topics .topic .title {
+    font-size: 18px;
+    color: #4677AB;
+}
+
+
+/* Warranty Policy */
+
+.asiavina-list-ol-item {
+    display: table-row;
+}
+
+.asiavina-list-ol-index {
+    text-align: center;
+    width: 250px;
+    font-size: 100px;
+    color: #315377;
+    position: relative;
+}
+
+.asiavina-list-ol-index,
+.asiavina-list-ol-content {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+}
+
+.asiavina-list-ol-item[data-i="1"] .asiavina-list-ol-index:before,
+.asiavina-list-ol-item-end .asiavina-list-ol-index:after {
+    width: 0px;
+}
+
+.asiavina-list-ol-index:before {
+    top: 0px;
+}
+
+.asiavina-list-ol-index:before,
+.asiavina-list-ol-index:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: calc(50% - 50px);
+    width: 1px;
+    left: 50%;
+    background: #315377;
+    opacity: 0.3;
+}
+
+.asiavina-list-ol-index:after {
+    top: calc(50% + 50px);
+}
+
+.asiavina-list-ol-index:before,
+.asiavina-list-ol-index:after {
+    content: '';
+    position: absolute;
+    display: block;
+    height: calc(50% - 50px);
+    width: 1px;
+    left: 50%;
+    background: #315377;
+    opacity: 0.3;
+}
+
+.asiavina-list-ol-item .title {
+    font-size: 20px;
+}
+
+.asiavina-list-ol-item .content {
+    font-size: 14px;
+    color: #999;
+}
+
+main.content-about-us ul,
+main.content-agent ul,
+main.content-customer-service ul,
+main.content-exchange-policy ul,
+main.content-promotion ul,
+main.content-shop ul,
+main.content-usage-tips ul,
+main.content-warranty-policy ul,
+main.content-default ul,
+main.content-single-promotion ul,
+main.content-single-product ul,
+main.content-product-archive ul,
+main.content-contact-us ul {
+    padding-left: 15px;
+    list-style: none;
+}
+
+main.content-about-us ul li:before,
+main.content-agent ul li:before,
+main.content-customer-service ul li:before,
+main.content-exchange-policy ul li:before,
+main.content-promotion ul li:before,
+main.content-shop ul li:before,
+main.content-usage-tips ul li:before,
+main.content-warranty-policy ul li:before,
+main.content-default ul li:before,
+main.content-single-promotion ul li:before,
+main.content-single-product ul li:before,
+main.content-product-archive ul li:before,
+main.content-contact-us ul li:before {
+    content: "\2022"!important;
+    color: #BACEE3!important;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    transform: scale(1.5);
+}
+
+.asiavina-history-process,
+.asiavina-warranty-process {
+    padding: 30px 0px;
+}
+
+.asiavina-history-process-item .thumbnail,
+.asiavina-warranty-process-item .thumbnail {
+    height: 70px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.asiavina-history-process-item .index,
+.asiavina-history-process-item .title,
+.asiavina-warranty-process-item .index,
+.asiavina-warranty-process-item .title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+}
+
+.asiavina-history-process-item[data-id="1"] .index:before,
+.asiavina-history-process-item-end .index:after,
+.asiavina-warranty-process-item[data-id="1"] .index:before,
+.asiavina-warranty-process-item-end .index:after {
+    background: transparent;
+}
+
+.asiavina-history-process-item .index:before,
+.asiavina-warranty-process-item .index:before {
+    left: -15px;
+}
+
+.asiavina-history-process-item .index:before,
+.asiavina-warranty-process-item .index:before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    height: 4px;
+    width: calc(50% + 15px);
+    background: #749CC6;
+    z-index: -1;
+}
+
+.asiavina-history-process-item .index:after,
+.asiavina-warranty-process-item .index:after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    height: 4px;
+    width: calc(50% + 15px);
+    background: #749CC6;
+    z-index: -1;
+}
+
+.asiavina-history-process-item .index div,
+.asiavina-warranty-process-item .index div {
+    margin: 20px auto;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #749CC6;
+    color: #fff;
+    line-height: 25px;
+}
+
+.asiavina-history-process-item .content,
+.asiavina-warranty-process-item .content {
+    text-align: justify;
+    color: #999;
+    font-size: 13px;
+}
+
+.asiavina-history-process-item-end .index:after,
+.asiavina-warranty-process-item-end .index:after {
+    background: transparent;
+}
+
+
+/* Exchange Policy */
+
+.service-support.service-support-bg-2 {
+    position: relative;
+    background: url(https://quatvietnam.com.vn/wp-content/themes/asiavina/assets/images/suport-service-bg-2.jpg) no-repeat center center;
+    background-size: 100%;
+    object-fit: cover;
+    padding: 20px;
+    color: #fff;
+}
+
+.service-support:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.title-style-1.text-white:before,
+.title-style-1.text-white:after {
+    background: url(https://quatvietnam.com.vn/wp-content/themes/asiavina/assets/images/air-white.png) no-repeat center bottom!important;
+    background-size: 100%!important;
+}
+
+
+/* Usage Tips */
+
+.asiavina-list-col-item {
+    margin-bottom: 50px;
+}
+
+.asiavina-list-col-index {
+    color: #749CC6;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+}
+
+.asiavina-list-col-index span {
+    background: #fff;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.asiavina-list-col-index:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #749CC6;
+    z-index: -1;
+    left: 0px;
+    bottom: 10px;
+}
+
+.asiavina-list-col-item .title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.asiavina-list-col-item .content {
+    color: #999;
+    font-size: 15px;
+}
+
+
+/* */
+
+.service-partners-finder {
+    border: 1px solid #152433;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 30px 0px;
+}
+
+.service-partners-finder .col-5 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.service-partners-finder .col-5:nth-child(2) {
+    border-left: 1px solid #152433;
+}
+
+.service-partners-finder input,
+.service-partners-finder select {
+    border: none;
+    box-shadow: none !important;
+    outline: none;
+    width: calc(100% - 60px);
+}
+
+.custom-select {
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.service-partners-finder .col-2 {
+    text-align: right;
+}
+
+@media (min-width: 992px) {
+    .d-lg-flex {
+        display: flex!important;
+    }
+    .retailer {
+        border-left: 1px solid #749CC6;
+        padding: 10px 20px;
+        margin-bottom: 30px;
+    }
+    .retailers .col:nth-child(3n - 2) .retailer {
+        border: none;
+    }
+    .btn:not(.dropdown-toggle) {
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .d-lg-none {
+        display: none!important;
+    }
+    .row-cols-lg-1>* {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .asiavina-contact-form form {
+        margin: 50px 100px;
+    }
+}
+
+.btn.btn-theme {
+    color: #fff;
+    background: #315377;
+}
+
+.hotline {
+    background: #EEF3F8;
+    margin-top: 50px;
+    margin-bottom: -50px;
+    padding: 20px 0px 10px;
+}
+
+.hotline-container {
+    font-size: 13px;
+    color: #999;
+    width: 400px;
+    max-width: 100%;
+    margin: auto;
+}
+
+.hotline .phone {
+    display: inline-block;
+    font-size: 20px;
+    color: #EC2129;
+    font-weight: bolder;
+}
+
+
+/* Contact us*/
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+label {
+    display: inline-block;
+}
+
 
 /* Footer */
 
-footer {
-    background-color: #315377;
-    max-height: 291px;
+#footer {
+    background: #315377;
+    color: #fff;
+    padding: 30px 0px;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+#footer .col {
+    height: 100%;
+}
+
+#footer p {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#footer .footer-sidebar svg,
+#footer .footer-sidebar i {
+    font-size: 20px;
+    width: 40px;
+}
+
+#footer .footer-sidebar span {
+    display: inline-block;
+}
+
+#footer a {
+    color: #fff;
+}
+
+#footer .menu-item {
+    margin-bottom: 5px;
+}
+
+#footer .menu,
+#footer .menu-item {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 100%;
 }

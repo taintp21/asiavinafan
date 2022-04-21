@@ -22,6 +22,27 @@ class HomeController extends Controller
     public function agents(){
         return view('frontend.agents');
     }
+    //Customer Service
+    public function customer_service(){
+        return view('frontend.customer_service');
+    }
+
+    public function warranty_policy(){
+        return view('frontend.warranty_policy');
+    }
+
+    public function exchange_policy(){
+        return view('frontend.exchange_policy');
+    }
+
+    public function usage_tips(){
+        return view ('frontend.usage_tips');
+    }
+
+    //Contact Us
+    public function contact_us(){
+        return view('frontend.contact_us');
+    }
 
     /**
      * Show the form for creating a new resource.

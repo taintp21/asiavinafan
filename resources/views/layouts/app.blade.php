@@ -12,13 +12,13 @@
 </head>
 <body>
     <div class="wrap">
-        @include('frontend.navigation')
+        @include('layouts.navigation')
 
-        <main class="py-5">
+        <main class="pt-5">
             @yield('content')
         </main>
 
-        @include('frontend.footer')
+        @include('layouts.footer')
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

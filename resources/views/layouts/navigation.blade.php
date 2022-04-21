@@ -13,7 +13,14 @@
                         <a class="nav-link {{ request()->segment(1) == 'agents' ? 'active' : '' }}" href="{{url('agents')}}">Stores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Customer Services</a>
+                        <a class="nav-link
+                                    {{ request()->segment(1) == 'customer-service' ? 'active' : '' }}
+                                    {{ request()->segment(1) == 'warranty-policy' ? 'active' : '' }}
+                                    {{ request()->segment(1) == 'exchange-policy' ? 'active' : '' }}
+                                    {{ request()->segment(1) == 'usage-tips' ? 'active' : '' }}"
+                            href="{{url('customer-service')}} ">
+                            Customer Services
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Promotion</a>
@@ -22,7 +29,7 @@
                         <a class="nav-link" href="#">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact us</a>
+                        <a class="nav-link {{ request()->segment(1) == 'contact-us' ? 'active' : '' }}" href="{{url('contact-us')}}">Contact us</a>
                     </li>
                 </ul>
             </div>

@@ -17,5 +17,10 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/shop', [HomeController::class, 'shop']);
 Route::get('/agents', [HomeController::class, 'agents']);
+Route::get('/customer-service', [HomeController::class, 'customer_service']);
+Route::get('/warranty-policy', [HomeController::class, 'warranty_policy']);
+Route::get('/exchange-policy', [HomeController::class, 'exchange_policy']);
+Route::get('usage-tips', [HomeController::class, 'usage_tips']);
+Route::get('contact-us', [HomeController::class, 'contact_us']);
 
 Route::get('/product-category/stand-fan', [HomeController::class, 'productCategory']);

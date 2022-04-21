@@ -242,7 +242,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="input-serial-number">
-                                <img src="{{url('img/icon/register-type.svg')}}" width="16" height="16" style="object-fit:contain">
+                                <img src="{{url('img/icon/register-serial.svg')}}" width="16" height="16" style="object-fit:contain">
                             </span>
                             <input type="text" class="form-control" placeholder="Serial Number">
                         </div>
