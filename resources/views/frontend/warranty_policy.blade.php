@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app')
 @section('content')
     <h2 class="title-style-1  theme-normal">
         <span class="content">WARRANTY POLICY</span>
@@ -54,7 +54,7 @@
                                 <div class="col">
                                     <div class="asiavina-warranty-process-item " data-id="1">
                                         <div class="thumbnail">
-                                            <img src="https://quatvietnam.com.vn/wp-content/uploads/2021/01/w-customer.png"
+                                            <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652079550/w-customer_iapxti.png"
                                                 alt="Customer">
                                         </div>
 
@@ -72,7 +72,7 @@
                                 <div class="col">
                                     <div class="asiavina-warranty-process-item " data-id="2">
                                         <div class="thumbnail">
-                                            <img src="https://quatvietnam.com.vn/wp-content/uploads/2021/01/w-service-receptionist.png"
+                                            <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652079581/w-service-receptionist_r6jehe.png"
                                                 alt="Customer">
                                         </div>
 
@@ -93,7 +93,7 @@
                                 <div class="col">
                                     <div class="asiavina-warranty-process-item " data-id="3">
                                         <div class="thumbnail">
-                                            <img src="https://quatvietnam.com.vn/wp-content/uploads/2021/01/w-service-technician.png"
+                                            <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652079590/w-service-technician_ydgjk7.png"
                                                 alt="Customer">
                                         </div>
 
@@ -115,7 +115,7 @@
                                     <div class="asiavina-warranty-process-item asiavina-warranty-process-item-end"
                                         data-id="4">
                                         <div class="thumbnail">
-                                            <img src="https://quatvietnam.com.vn/wp-content/uploads/2021/01/w-customer-care.png"
+                                            <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652079601/w-customer-care_kf7pbb.png"
                                                 alt="Customer">
                                         </div>
 
