@@ -1,21 +1,22 @@
 @extends('backend.layouts.app')
-@section('title','Sliders | Admin Panel')
+@section('title', 'Categories | Admin Panel')
 @section('plugins.Datatables', true)
 @section('plugins.Sweetalert2', true)
 @section('content_header')
-    <h1>Sliders</h1>
+    <h1>Agents</h1>
     @include('backend.breadcrumbs')
 @stop
 @section('content')
     <div class="mb-3">
-        <a class="btn btn-success" href="{{url('/admin/sliders/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
+        <a class="btn btn-success" href="{{url('/admin/agents/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
     </div>
     <table class="table table-bordered" id="{{Request::segment(2)}}">
         <thead>
             <tr>
                 <th width="100px">#</th>
-                <th>Image</th>
-                <th>Image Title</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Phone</th>
                 <th width="100px">Action</th>
             </tr>
         </thead>
@@ -25,10 +26,11 @@
                 @php $order++; @endphp
                 <tr>
                     <th>{{$order}}</th>
-                    <td><img src="{{$r->images}}" height="100px"></td>
-                    <td>{{$r->title}}</td>
+                    <td>{{$r->name}}</td>
+                    <td>{{$r->location}}</td>
+                    <td>{{$r->phone}}</td>
                     <td>
-                        <a href="{{url('/admin/sliders/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                        <a href="{{url('/admin/agents/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
                         &nbsp;&nbsp;
                         <a href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                     </td>
@@ -44,7 +46,7 @@
         });
         function deleteItem(e){
             let id = e.getAttribute('data-id');
-            var self = "{{ url('/admin/sliders/delete') }}" + "/" + id;
+            var self = "{{ url('/admin/agents/delete') }}";
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -60,7 +62,7 @@
                         'Your data has been deleted.',
                         'success',
                     ).then(function() {
-                        location.href = self;
+                        location.href = self + "/" + id;
                     });
                 }
             });

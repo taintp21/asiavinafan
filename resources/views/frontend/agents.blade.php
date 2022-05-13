@@ -16,27 +16,24 @@
     <section class="retailers">
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-                @forelse ($data as $r)
+                @foreach ($data as $r)
                     <div class="col">
                         <article class="retailer">
-                            <h2 class="title">Home &amp; Cook Thảo Mộc Việt</h2>
+                            <h2 class="title">{{$r->name}}</h2>
 
                             <p class="info">
                                 <i class="fa-solid fa-location-dot"></i>
-                                <span>12 Võ Văn Kiệt, Quận 1, Tp. HCM</span>
+                                <span>{{$r->location}}</span>
                             </p>
 
 
                             <p class="info">
                                 <i class="fa-solid fa-phone"></i>
-                                <span>(028)39154342</span>
+                                <span>{{$r->phone}}</span>
                             </p>
-
-
                         </article>
                     </div>
-                @empty
-                @endforelse
+                @endforeach
             </div>
         </div>
     </section>

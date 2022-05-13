@@ -242,35 +242,6 @@ return [
             'text' => 'Search',
         ],
 
-        ['header' => 'CONTENT'],
-
-        [
-            'key'         => 'categories',
-            'text'        => 'Categories',
-            'url'         => 'admin/categories',
-            'icon'        => 'far fa-fw fa-file',
-            'label_color' => 'success',
-            'active' => ['admin/categories', 'admin/categories*', 'regex:@^content/[0-9]+$@']
-        ],
-
-        [
-            'text'        => 'Sliders',
-            'url'         => 'admin/sliders',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-            'active' => ['admin/sliders', 'admin/sliders*', 'regex:@^content/[0-9]+$@']
-        ],
-
-        [
-            'text'        => 'Products',
-            'url'         => 'admin/products',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-            'active' => ['admin/products', 'admin/products*', 'regex:@^content/[0-9]+$@']
-        ],
-
         ['header' => 'account_settings'],
 
         [

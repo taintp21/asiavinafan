@@ -14,13 +14,11 @@ class slidersController extends Controller
         return view('backend.sliders.index', compact('data', 'count'));
     }
 
-    public function create()
-    {
+    public function create(){
         return view('backend.sliders.create');
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $insert = $request->all();
         $sliders = new sliders();
         if($request->hasFile('images')){
@@ -31,14 +29,12 @@ class slidersController extends Controller
         return redirect()->back()->with('success', 'Successfully!');
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         $data = sliders::find($id);
         return view('backend.sliders.edit', compact('data'));
     }
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $input = $request->all();
 
         $sliders = sliders::find($id);
@@ -50,8 +46,7 @@ class slidersController extends Controller
         return redirect()->back()->with('success', 'Updated Successfully!');
     }
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         sliders::destroy($id);
         return back()->with("success", "Deleted Successfully!");
     }

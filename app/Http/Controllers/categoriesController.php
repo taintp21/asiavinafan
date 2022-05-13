@@ -13,13 +13,12 @@ class categoriesController extends Controller
         $count = count($data);
         return view('backend.categories.index', compact('data', 'count'));
     }
-    public function create()
-    {
+
+    public function create(){
         return view('backend.categories.create');
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $insert = $request->all();
         $categories = new categories();
         $categories->name = $insert['name'];
@@ -31,27 +30,12 @@ class categoriesController extends Controller
         return redirect()->back()->with('success', 'Successfully!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
+    public function edit($id){
         $data = categories::find($id);
         return view('backend.categories.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $input = $request->all();
 
         $categories = categories::find($id);
@@ -64,14 +48,7 @@ class categoriesController extends Controller
         return redirect()->back()->with('success', 'Updated Successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+    public function destroy($id){
         categories::destroy($id);
         return back()->with("success", "Deleted Successfully!");
     }

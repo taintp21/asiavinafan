@@ -8,7 +8,7 @@
 @stop
 @section('content')
     <div class="mb-3">
-        <a class="btn btn-success" href="{{url('/admin/products/create')}}"><i class="fa-solid fa-plus"></i> Add new</a>
+        <a class="btn btn-success" href="{{url('/admin/products/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
     </div>
     <table class="table table-bordered" id="{{Request::segment(2)}}">
         <thead>
@@ -36,9 +36,9 @@
                     <td>{{$r->technical_specifications}}</td>
                     <td>{{$r->switch_height}}</td>
                     <td>{{$r->thermal_fuse_protection}}</td>
-                    <td>{{$r->price}}</td>
+                    <td>{{number_format($r->price, 0, '', ',')}} &#8363;</td>
                     <td>
-                        <a href="{{url('/admin/categories/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                        <a href="{{url('/admin/products/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
                         &nbsp;&nbsp;
                         <a href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can fa-lg"></i></a>
                     </td>

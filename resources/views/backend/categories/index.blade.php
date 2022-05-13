@@ -2,11 +2,11 @@
 @section('title', 'Categories | Admin Panel')
 @section('plugins.Datatables', true)
 @section('plugins.Sweetalert2', true)
-
 @section('content_header')
     <h1>Categories</h1>
     @include('backend.breadcrumbs')
 @stop
+
 @section('content')
     <div class="mb-3">
         <a class="btn btn-success" href="{{url('/admin/categories/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
