@@ -1,4 +1,7 @@
 @extends('frontend.layouts.app')
+
+@section('web-title', 'Search')
+
 @section('content')
     <main>
         <div class="container">

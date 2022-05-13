@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\agents;
-use App\Models\slider;
+use App\Models\sliders;
 use App\Models\partners;
 use App\Models\products;
 use App\Models\categories;
@@ -16,25 +15,27 @@ class HomeController extends Controller
     public function index()
     {
         $categories = categories::all();
-        $slider = slider::all();
-        return view('frontend.index', compact('categories', 'slider'));
+        $sliders = sliders::all();
+        return view('frontend.index', compact('categories', 'sliders'));
     }
-
     public function shop(){
         $categories = categories::all();
         return view('frontend.shop', compact('categories'));
     }
 
-    public function product_category(){
+    public function product_category($slug){
         $categories = categories::all();
-        $title = DB::table('categories')->join('products', 'products.cateId','=','categories.id')->select('categories.name')->get();
-        $products = products::all();
-        return view('frontend.product_category',compact('categories', 'title', 'products'));
+        $dataSlug = categories::select('id')->where('slug','LIKE',$slug)->first();
+        $products = products::where('cateId','=',$dataSlug->id)->get();
+        return view('frontend.product_category',compact('categories', 'products', 'slug'));
     }
 
     //1 Product
-    public function product(){
-
+    public function product($slug){
+        $categories = categories::all();
+        $product = products::where('name','LIKE',$slug)->first();
+        $cateName = categories::select('name')->where('id','=',$product->cateId)->first();
+        return view('frontend.product', compact('categories', 'cateName', 'product', 'slug'));
     }
 
     public function agents(){

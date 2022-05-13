@@ -1,4 +1,7 @@
 @extends('frontend.layouts.app')
+
+@section('web-title','Exchange Policy')
+
 @section('content')
     <main class="content-exchange-policy">
 

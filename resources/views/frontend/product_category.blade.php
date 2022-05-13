@@ -1,12 +1,12 @@
 @extends('frontend.layouts.app')
+
+@section('web-title') {{ucwords(str_replace('-', ' ', $slug))}} @stop
+
 @section('content')
     <main class="content-product-archive">
 
         <h2 class="title-style-1  theme-normal">
-            @forelse ($title as $r)
-            <span class="content">{{$r->name}}</span>
-            @empty
-            @endforelse
+            <span class="content">{{str_replace('-', ' ', $slug)}}</span>
         </h2>
         <div class="container">
             <div class="row row-cols-2 row-cols-lg-4">

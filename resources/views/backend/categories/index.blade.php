@@ -1,39 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
-    <a class="btn btn-primary" href="{{url('/admin/categories/create')}}">Add new</a>
-    <div class="container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Slug</th>
-                    <th>Images</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php $order = 0; @endphp
-                @forelse ($data as $r)
-                    @php $order++; @endphp
-                    <tr>
-                        <th>{{$order}}</th>
-                        <td>{{$r->name}}</td>
-                        <td>{{$r->slug}}</td>
-                        <td><img src="{{$r->images}}" height="100px"></td>
-                    </tr>
-                @empty
-                    <p class="text-center">No data found</p>
-                @endforelse
-            </tbody>
-        </table>
+@extends('backend.layouts.app')
+@section('title', 'Categories | Admin Panel')
+@section('plugins.Datatables', true)
+@section('plugins.Sweetalert2', true)
+
+@section('content_header')
+    <h1>Categories</h1>
+    @include('backend.breadcrumbs')
+@stop
+@section('content')
+    <div class="mb-3">
+        <a class="btn btn-success" href="{{url('/admin/categories/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
     </div>
-</body>
-</html>
+    <table class="table table-bordered" id="{{Request::segment(2)}}">
+        <thead>
+            <tr>
+                <th width="100px">#</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>Image</th>
+                <th width="100px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php $order = 0; @endphp
+            @foreach ($data as $r)
+                @php $order++; @endphp
+                <tr>
+                    <th>{{$order}}</th>
+                    <td>{{$r->name}}</td>
+                    <td>{{$r->slug}}</td>
+                    <td><img src="{{$r->images}}" height="100px"></td>
+                    <td>
+                        <a href="{{url('/admin/categories/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                        &nbsp;&nbsp;
+                        <a href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can fa-lg"></i></a>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@stop
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $("#{{Request::segment(2)}}").DataTable();
+        });
+        function deleteItem(e){
+            let id = e.getAttribute('data-id');
+            var self = "{{ url('/admin/categories/delete') }}";
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your data has been deleted.',
+                        'success',
+                    ).then(function() {
+                        location.href = self + "/" + id;
+                    });
+                }
+            });
+        }
+    </script>
+@stop

@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use cloudinary;
 use App\Models\categories;
 use Illuminate\Http\Request;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class categoriesController extends Controller
 {
     public function index(){
         $data = categories::all();
-        return view('backend.categories.index', compact('data'));
+        $count = count($data);
+        return view('backend.categories.index', compact('data', 'count'));
     }
     public function create()
     {
@@ -23,21 +24,11 @@ class categoriesController extends Controller
         $categories = new categories();
         $categories->name = $insert['name'];
         $categories->slug = $insert['slug'];
-        $response = cloudinary()->upload($request->file('images')->getRealPath())->getSecurePath();
-        $categories->images = $response;
+        if($request->hasFile('images')){
+            $categories->images = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+        }
         $categories->save();
-        return redirect()->back()->with('message', 'Thêm mới thành công!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->back()->with('success', 'Successfully!');
     }
 
     /**
@@ -48,7 +39,8 @@ class categoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = categories::find($id);
+        return view('backend.categories.edit', compact('data'));
     }
 
     /**
@@ -60,7 +52,16 @@ class categoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+
+        $categories = categories::find($id);
+        $categories->name = $input['name'];
+        $categories->slug = $input['slug'];
+        if($request->hasFile('images')){
+            $categories->images = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+        }
+        $categories->update();
+        return redirect()->back()->with('success', 'Updated Successfully!');
     }
 
     /**
@@ -71,6 +72,7 @@ class categoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        categories::destroy($id);
+        return back()->with("success", "Deleted Successfully!");
     }
 }

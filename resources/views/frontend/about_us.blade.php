@@ -1,4 +1,7 @@
 @extends('frontend.layouts.app')
+
+@section('web-title', 'About Us')
+
 @section('link-include')
     <link rel="stylesheet" id="metaslider-flex-slider-css" href="{{ asset('css/flexslider.css') }}" type="text/css"
         media="all" property="stylesheet">

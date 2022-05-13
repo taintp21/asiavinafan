@@ -1,4 +1,7 @@
 @extends('frontend.layouts.app')
+
+@section('web-title','Usage Tips')
+
 @section('content')
     <h2 class="title-style-1  theme-normal">
         <span class="content">USAGE TIPS</span>

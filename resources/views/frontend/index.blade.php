@@ -1,7 +1,10 @@
 @extends('frontend.layouts.app')
+
+@section('web-title','Home')
+
 @section('link-include')
-    <link rel="stylesheet" id="metaslider-flex-slider-css" href="{{ asset('css/flexslider.css') }}" type="text/css" media="all" property="stylesheet">
-    <link rel="stylesheet" id="metaslider-public-css" href="{{ asset('css/public.css') }}" type="text/css" media="all" property="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}" type="text/css" media="all" property="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/public.css') }}" type="text/css" media="all" property="stylesheet">
     <link rel="stylesheet" href="{{ asset('slick/slick.css') }}">
     <style id="metaslider-public-inline-css" type="text/css">
         #metaslider_165.flexslider .slides li {
@@ -14,7 +17,6 @@
 @section('content')
     <section class="product-cats">
         <div class="container">
-
             <div class="product-categories-carousel">
                 @forelse ($categories as $r)
                     <div>
@@ -32,28 +34,7 @@
                 @endforelse
             </div>
         </div>
-
-        <script>
-            jQuery('.product-categories-carousel').slick({
-                infinite: true,
-                slidesToShow: 7,
-                slidesToScroll: 1,
-                responsive: [{
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: 5
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: 3
-                        }
-                    },
-                ]
-            });
-        </script>
-        </div>
+        <script src="{{asset('js/product-categories-carousel.js')}}"></script>
     </section>
 
     <section class="home-slider">
@@ -63,7 +44,7 @@
                 <div id="metaslider_container_43">
                     <div id="metaslider_43" class="flexslider">
                         <ul class="slides">
-                            @forelse ($slider as $r)
+                            @forelse ($sliders as $r)
                                 <li>
                                     <img src="{{$r->images}}" height="787" width="1920" title="{{$r->title}}" draggable="false">
                                 </li>
@@ -135,16 +116,19 @@
         </h2>
         <div class="product-topics-container">
             <ul class="product-topics d-none d-md-block">
-                <li data-target="best-selling" class="active"><span>Best-selling Products</span></li>
-                <li data-target="new"><span>New Products<span></span></span></li>
-                <li data-target="popular"><span>Popular Products<span></span></span></li>
+                <li data-target="best-selling" class="active">
+                    <span>Best-selling Products</span>
+                </li>
+                <li data-target="new">
+                    <span>New Products<span>
+                </li>
+                <li data-target="popular">
+                    <span>Popular Products<span>
+                </li>
             </ul>
             <div class="product-topics-item" data-id="best-selling" style="display: block;">
 
                 <div class="products-slider-container" data-id="1">
-                    <div class="products-slider-prev"></div>
-                    <div class="products-slider-next"></div>
-
                     <section class="products-slider">
                         <input type="radio" name="slider1" data-slider-id="1" data-id="s1" id="product_slider_item_1_1"
                             checked="">

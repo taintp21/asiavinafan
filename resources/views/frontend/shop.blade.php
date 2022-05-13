@@ -1,7 +1,10 @@
 @extends('frontend.layouts.app')
+
+@section('web-title','Asiavina Fans')
+
 @section('link-include')
-    <link rel="stylesheet" id="metaslider-flex-slider-css" href="{{ asset('css/flexslider.css') }}" type="text/css" media="all" property="stylesheet">
-    <link rel="stylesheet" id="metaslider-public-css" href="{{ asset('css/public.css') }}" type="text/css" media="all" property="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}" type="text/css" media="all" property="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/public.css') }}" type="text/css" media="all" property="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <style id="metaslider-public-inline-css" type="text/css">
         #metaslider_165.flexslider .slides li {
@@ -14,7 +17,6 @@
 @section('content')
     <section class="product-cats">
         <div class="container">
-
             <div class="product-categories-carousel">
                 @forelse ($categories as $r)
                     <div>
@@ -31,32 +33,8 @@
                     <p>No data</p>
                 @endforelse
             </div>
-
-            <script>
-                jQuery('.product-categories-carousel').slick({
-                    infinite: true,
-                    slidesToShow: 7,
-                    slidesToScroll: 1,
-                    responsive: [{
-                            breakpoint: 1200,
-                            settings: {
-                                slidesToShow: 5
-                            }
-                        },
-                        {
-                            breakpoint: 992,
-                            settings: {
-                                slidesToShow: 3
-                            }
-                        },
-                        // {
-                        //     breakpoint: 576,
-                        //     settings: {slidesToShow: 2 }
-                        // }
-                    ]
-                });
-            </script>
         </div>
+        <script src="{{asset('js/product-categories-carousel.js')}}"></script>
     </section>
 
     <section class="all-products">

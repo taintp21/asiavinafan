@@ -1,10 +1,13 @@
 <?php
 
+use App\Models\categories;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\slidersController;
+use App\Http\Controllers\productsController;
 use App\Http\Controllers\categoriesController;
-use App\Models\categories;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +39,38 @@ Route::get('/product/{slug}', [HomeController::class, 'product']);
 Route::get('/search/', [HomeController::class, 'search'])->name('search');
 
 //Back end
-Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/admin/categories', [categoriesController::class, 'index']);
-Route::get('/admin/categories/create', [categoriesController::class, 'create']);
-Route::post('/admin/categories/store', [categoriesController::class, 'store'])->name('categories.store');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
+
+    //Admin categories
+    Route::get('/admin/categories', [categoriesController::class, 'index'])->name('categories')->middleware('auth');
+        //Store
+        Route::get('/admin/categories/create', [categoriesController::class, 'create'])->name('create')->middleware('auth');
+        Route::post('/admin/categories/store', [categoriesController::class, 'store'])->name('categories.store')->middleware('auth');
+        //Edit
+        Route::get('/admin/categories/edit/{id}', [categoriesController::class, 'edit'])->name('edit')->middleware('auth');
+        Route::post('/admin/categories/update/{id}', [categoriesController::class, 'update'])->name('categories.update')->middleware('auth');
+        //Delete
+        Route::get('/admin/categories/delete/{id}', [categoriesController::class, 'destroy'])->name('categories.delete')->middleware('auth');
+    //Admin Sliders
+    Route::get('/admin/sliders', [slidersController::class, 'index'])->name('sliders')->middleware('auth');
+        //Store
+        Route::get('/admin/sliders/create', [slidersController::class, 'create'])->name('create')->middleware('auth');
+        Route::post('/admin/sliders/store', [slidersController::class, 'store'])->name('sliders.store')->middleware('auth');
+        //Edit
+        Route::get('/admin/sliders/edit/{id}', [slidersController::class, 'edit'])->name('edit')->middleware('auth');
+        Route::post('/admin/sliders/update/{id}', [slidersController::class, 'update'])->name('sliders.update')->middleware('auth');
+        //Delete
+        Route::get('/admin/sliders/delete/{id}', [slidersController::class, 'destroy'])->name('sliders.delete')->middleware('auth');
+    //Admin products
+    Route::get('/admin/products', [productsController::class, 'index'])->name('categories')->middleware('auth');
+        //Store
+        Route::get('/admin/products/create', [productsController::class, 'create'])->name('create')->middleware('auth');
+        Route::post('/admin/products/store', [productsController::class, 'store'])->name('products.store')->middleware('auth');
+        //Edit
+        Route::get('/admin/products/edit/{id}', [productsController::class, 'edit'])->name('edit')->middleware('auth');
+        Route::post('/admin/products/update/{id}', [productsController::class, 'update'])->name('products.update')->middleware('auth');
+        //Delete
+        Route::get('/admin/products/delete/{id}', [productsController::class, 'destroy'])->name('products.delete')->middleware('auth');
+
+
+Auth::routes();

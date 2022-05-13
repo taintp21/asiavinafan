@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 
+@section('web-title','Customer Service')
+
 @section('content')
     <h2 class="title-style-1  theme-normal">
         <span class="content">Customer Service</span>

@@ -1,68 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="container">
-        <div class="col-md-12">
-            <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" onkeyup="ChangeToSlug();">
-                </div>
-                <div class="mb-3">
-                    <label for="slug">Slug</label>
-                    <input type="text" class="form-control" name="slug" id="slug" disabled>
-                </div>
-                <div class="mb-3">
-                    <label for="images">Images</label>
-                    <input type="file" class="form-control" name="images">
-                </div>
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Add new</button>
-                </div>
-            </form>
+@extends('backend.layouts.app')
+@section('title','Create new category | Admin Panel')
+@section('plugins.BsCustomFileInput', true)
+@section('content_header')
+    <h1>Create new category</h1>
+    @include('backend.breadcrumbs')
+@stop
+@section('content')
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652371045/no-image-icon-23483_yxbitv.png" id="preview-image-before-upload" alt="preview image" width="250px">
         </div>
+        <form class="col-md-8" action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter category name" value="{{old('name')}}" onkeyup="ChangeToSlug();" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="slug">Slug</label>
+                <input type="text" class="form-control" name="slug" id="slug" value="{{old('slug')}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="images">Upload image</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="images" name="images">
+                        <label class="custom-file-label" for="images">Choose image file</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Insert</button>
+            </div>
+            @if (\Session::has('success'))
+                <p class="text-success font-weight-bold">{!! \Session::get('success') !!}</p>
+            @endif
+        </form>
     </div>
-    <script>
-        function ChangeToSlug()
-            {
-                var name = document.getElementById("name").value;
-                var slug = name.toLowerCase();
-                //Đổi ký tự có dấu thành không dấu
-                slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
-                slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
-                slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
-                slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
-                slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
-                slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
-                slug = slug.replace(/đ/gi, 'd');
-                //Xóa các ký tự đặt biệt
-                slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
-                //Đổi khoảng trắng thành ký tự gạch ngang
-                slug = slug.replace(/ /gi, "-");
-                //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
-                //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
-                slug = slug.replace(/\-\-\-\-\-/gi, '-');
-                slug = slug.replace(/\-\-\-\-/gi, '-');
-                slug = slug.replace(/\-\-\-/gi, '-');
-                slug = slug.replace(/\-\-/gi, '-');
-                //Xóa các ký tự gạch ngang ở đầu và cuối
-                slug = '@' + slug + '@';
-                slug = slug.replace(/\@\-|\-\@|\@/gi, '');
-                //In slug ra textbox có id “slug”
-                document.getElementById('slug').value = slug;
-            }
-    </script>
-</body>
+@endsection
 
-</html>
+@section('js')
+    <script src="{{asset('js/slug.js')}}"></script>
+    <script>
+        $(document).ready(function (e) {
+            $('#images').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    $('#preview-image-before-upload').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+
+                var fileName = $(this).val().replace(/C:\\fakepath\\/i, '');
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+@stop
