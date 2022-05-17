@@ -17,7 +17,9 @@ class products extends Model
         "cateId",
         "name",
         "images",
+        "publicId_cloudinary",
         "technical_specifications",
+        "featured",
         "switch_height",
         "thermal_fuse_protection",
         "price"

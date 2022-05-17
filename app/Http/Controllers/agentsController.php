@@ -9,8 +9,7 @@ class agentsController extends Controller
 {
     public function index(){
         $data = agents::all();
-        $count = count($data);
-        return view('backend.agents.index', compact('data', 'count'));
+        return view('backend.agents.index', compact('data'));
     }
 
     public function create(){

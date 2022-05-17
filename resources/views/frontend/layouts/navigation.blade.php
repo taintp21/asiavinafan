@@ -6,8 +6,7 @@
                 <div class="col-va-m hg-full">
                     <a class="btn" href="#" id="mobile-menu-btn-626a0f722a290">
                         <!-- <i class="fas fa-bars fa-2x"></i> -->
-                        <img src="https://quatvietnam.com.vn/wp-content/themes/asiavina/assets/images/bars.png"
-                            alt="menu">
+                        <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652723752/Icons/bars_yyyoh2.png" alt="menu">
                     </a>
                 </div>
 
@@ -24,7 +23,7 @@
                                 <a href="{{ url('customer-service') }}">Customer Service</a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{ url('') }}">Promotion</a>
+                                <a href="{{ url('promotion') }}">Promotion</a>
                             </li>
                             <li class="menu-item">
                                 <a href="{{ url('about-us') }}">About us</a>
@@ -48,9 +47,7 @@
 
             <div class="col-3 col-lg-2 hg-full">
                 <a href="{{ url('/') }}">
-                    <img class="logo"
-                        src="https://quatvietnam.com.vn/wp-content/uploads/2021/01/e989b238d6c8f2e7a9a93817fd6cf7cf-128x100.png"
-                        alt="Logo">
+                    <img class="logo" src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652723805/e989b238d6c8f2e7a9a93817fd6cf7cf-128x100_xhqasj.png" alt="Logo">
                 </a>
             </div>
 
@@ -83,19 +80,23 @@
             <div class="col-6 col-lg-3 tools">
                 <div class="languages">
                     <div class="dropdown">
-                        <a class="btn btn-outline-theme dropdown-toggle" href="#" type="button" id="language-toolbox" data-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-outline-theme dropdown-toggle" type="button" id="language-toolbox" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652081216/lang-en_k9lmur.png">
                             <span class="d-none d-lg-inline-block">English</span>
                             <span class="d-inline-block d-lg-none">ENG</span>
-                        </a>
+                        </button>
 
                         <div class="dropdown-menu" aria-labelledby="language-toolbox">
-                            <a class="dropdown-item" href="#">
-                                <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652081216/lang-en_k9lmur.png"> English
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652081250/lang-vi_kc7e8f.png"> Tiếng Việt
-                            </a>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652081216/lang-en_k9lmur.png"> English
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652081250/lang-vi_kc7e8f.png"> Tiếng Việt
+                                </a>
+                            </li>
                         </div>
                     </div>
                 </div>

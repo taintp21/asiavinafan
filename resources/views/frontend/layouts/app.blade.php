@@ -16,15 +16,26 @@
 </head>
 <body @yield('body-class')>
     @include('frontend.layouts.navigation')
+    <main>
+        @yield('content')
+        @include('frontend.layouts.contact_modal')
+        @if (Auth::check())
+            <div class="dropdown dropend">
+                <div class="dropdown-toggle avatar" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                    <img class="avatar__image" src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" />
+                </div>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser" id="menuAuth">
+                    <li><a class="dropdown-item" href="{{url('admin')}}">Admin site</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger fw-bold" href="{{url('logout')}}">Logout</a></li>
+                </ul>
+            </div>
+        @endif
+    </main>
 
-        <main>
-            @yield('content')
-            @include('frontend.layouts.contact_modal')
-        </main>
-
-        @include('frontend.layouts.footer')
-        @include('frontend.layouts.search')
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    @include('frontend.layouts.footer')
+    @include('frontend.layouts.search')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     @yield('custom-scripts')
 </body>
 </html>

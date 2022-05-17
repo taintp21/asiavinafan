@@ -10,8 +10,7 @@ class categoriesController extends Controller
 {
     public function index(){
         $data = categories::all();
-        $count = count($data);
-        return view('backend.categories.index', compact('data', 'count'));
+        return view('backend.categories.index', compact('data'));
     }
 
     public function create(){
@@ -23,9 +22,12 @@ class categoriesController extends Controller
         $categories = new categories();
         $categories->name = $insert['name'];
         $categories->slug = $insert['slug'];
+        $image_cloudinary = '';
         if($request->hasFile('images')){
-            $categories->images = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+            $image_cloudinary = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+            $categories->images = $image_cloudinary;
         }
+        if($image_cloudinary != '') $categories->publicId_cloudinary = Cloudinary::getPublicId();
         $categories->save();
         return redirect()->back()->with('success', 'Successfully!');
     }
@@ -41,14 +43,26 @@ class categoriesController extends Controller
         $categories = categories::find($id);
         $categories->name = $input['name'];
         $categories->slug = $input['slug'];
+        $image_cloudinary = '';
         if($request->hasFile('images')){
-            $categories->images = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+            if($categories->images == ''){
+                $image_cloudinary = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+                $categories->images = $image_cloudinary;
+            }
+            else{
+                Cloudinary::uploadApi()->destroy($categories->publicId_cloudinary, $options = []);
+                $image_cloudinary = Cloudinary::upload($request->file('images')->getRealPath())->getSecurePath();
+                $categories->images = $image_cloudinary;
+            }
         }
+        if($image_cloudinary != '') $categories->publicId_cloudinary = Cloudinary::getPublicId();
         $categories->update();
         return redirect()->back()->with('success', 'Updated Successfully!');
     }
 
     public function destroy($id){
+        $data = categories::find($id);
+        Cloudinary::uploadApi()->destroy($data->publicId_cloudinary, $options = []);
         categories::destroy($id);
         return back()->with("success", "Deleted Successfully!");
     }

@@ -6,11 +6,21 @@
     <h1>Products</h1>
     @include('backend.breadcrumbs')
 @stop
+@section('css')
+    <style>
+        td > table{
+            border: none;
+        }
+        td > table td{
+            border-top: none!important;
+        }
+    </style>
+@stop
 @section('content')
     <div class="mb-3">
-        <a class="btn btn-success" href="{{url('/admin/products/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
+        <a class="btn btn-success" href="{{route('products.create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
     </div>
-    <table class="table table-bordered" id="{{Request::segment(2)}}">
+    <table class="table" id="{{Request::segment(2)}}">
         <thead>
             <tr>
                 <th width="100px">#</th>
@@ -26,33 +36,31 @@
         </thead>
         <tbody>
             @php $order = 0; @endphp
-            @forelse ($data as $r)
+            @foreach ($data as $r)
                 @php $order++; @endphp
                 <tr>
                     <th>{{$order}}</th>
                     <td>{{DB::table("categories")->select("name")->where("id","=",$r->cateId)->first()->name}}</td>
                     <td>{{$r->name}}</td>
                     <td><img src="{{$r->images}}" height="100px"></td>
-                    <td>{{$r->technical_specifications}}</td>
-                    <td>{{$r->switch_height}}</td>
-                    <td>{{$r->thermal_fuse_protection}}</td>
+                    <td>{!! $r->technical_specifications !!}</td>
+                    <td>@if($r->switch_height == 1) Yes @else No @endif</td>
+                    <td>@if($r->thermal_fuse_protection == 1) Yes @else No @endif</td>
                     <td>{{number_format($r->price, 0, '', ',')}} &#8363;</td>
                     <td>
-                        <a href="{{url('/admin/products/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                        <a class="btn btn-warning btn-sm" href="{{route('products.edit', ['id' => $r->id])}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         &nbsp;&nbsp;
-                        <a href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can fa-lg"></i></a>
+                        <a class="btn btn-danger btn-sm" href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
-            @empty
-                <p class="text-center">No data found</p>
-            @endforelse
+            @endforeach
         </tbody>
     </table>
 @stop
 @section('js')
     <script>
         $(document).ready(function() {
-            $("#{{Request::segment(2)}}").DataTable();
+            $("#{{Request::segment(2)}}").DataTable({order: [[0, 'desc']]});
         });
         function deleteItem(e){
             let id = e.getAttribute('data-id');

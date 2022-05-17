@@ -9,9 +9,9 @@
 
 @section('content')
     <div class="mb-3">
-        <a class="btn btn-success" href="{{url('/admin/categories/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
+        <a class="btn btn-success" href="{{route('categories.create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
     </div>
-    <table class="table table-bordered" id="{{Request::segment(2)}}">
+    <table class="table" id="{{Request::segment(2)}}">
         <thead>
             <tr>
                 <th width="100px">#</th>
@@ -31,9 +31,9 @@
                     <td>{{$r->slug}}</td>
                     <td><img src="{{$r->images}}" height="100px"></td>
                     <td>
-                        <a href="{{url('/admin/categories/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                        <a class="btn btn-warning btn-sm" href="{{route('categories.edit', ['id' => $r->id])}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         &nbsp;&nbsp;
-                        <a href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can fa-lg"></i></a>
+                        <a class="btn btn-danger btn-sm" href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
             @endforeach
@@ -44,7 +44,7 @@
 @section('js')
     <script>
         $(document).ready(function() {
-            $("#{{Request::segment(2)}}").DataTable();
+            $("#{{Request::segment(2)}}").DataTable({order: [[0, 'desc']]});
         });
         function deleteItem(e){
             let id = e.getAttribute('data-id');

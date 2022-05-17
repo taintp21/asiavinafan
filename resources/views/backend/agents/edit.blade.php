@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title','Create new category | Admin Panel')
+@section('title','Edit agent | Admin Panel')
 @section('plugins.BsCustomFileInput', true)
 @section('content_header')
     <h1>Edit agent</h1>
@@ -22,7 +22,7 @@
                 <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter phone" value="{{$data->phone}}">
             </div>
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Insert</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
             @if (\Session::has('success'))
                 <p class="text-success font-weight-bold">{!! \Session::get('success') !!}</p>

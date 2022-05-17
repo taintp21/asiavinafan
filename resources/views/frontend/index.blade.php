@@ -1,5 +1,4 @@
 @extends('frontend.layouts.app')
-
 @section('web-title','Home')
 
 @section('link-include')
@@ -10,9 +9,9 @@
         #metaslider_165.flexslider .slides li {
             margin-right: 5px !important;
         }
-
     </style>
-    <script src="{{ url('slick/slick.min.js') }}" id="asiavina-slick-js"></script>
+    <script src="{{ asset("js/slick.min.js")}}"></script>
+    <script src="{{asset("js/sweetalert2@11.js")}}"></script>
 @endsection
 @section('content')
     <section class="product-cats">
@@ -42,7 +41,7 @@
             <div id="metaslider-id-43" style="width: 100%;"
                 class="ml-slider-3-19-1 metaslider metaslider-flex metaslider-43 ml-slider">
                 <div id="metaslider_container_43">
-                    <div id="metaslider_43" class="flexslider">
+                    <div id="metaslider" class="flexslider">
                         <ul class="slides">
                             @forelse ($sliders as $r)
                                 <li>
@@ -136,8 +135,7 @@
                         <input type="radio" name="slider1" data-slider-id="1" data-id="s3" id="product_slider_item_1_3">
 
                         <label data-id="slide1" for="product_slider_item_1_1">
-                            <article
-                                class="product product-slider-item first">
+                            <article class="product product-slider-item first">
                                 <div class="product-layout">
                                     <div class="left-col">
                                         <div class="category">
@@ -166,8 +164,7 @@
                             </article>
                         </label>
                         <label data-id="slide2" for="product_slider_item_1_2">
-                            <article
-                                class="product product-slider-item">
+                            <article class="product product-slider-item">
                                 <div class="product-layout">
                                     <div class="left-col">
                                         <div class="category">
@@ -196,8 +193,7 @@
                             </article>
                         </label>
                         <label data-id="slide3" for="product_slider_item_1_3">
-                            <article
-                                class="product product-slider-item">
+                            <article class="product product-slider-item">
                                 <div class="product-layout">
                                     <div class="left-col">
                                         <div class="category">
@@ -218,21 +214,18 @@
                                             sizes="(max-width: 376px) 100vw, 376px">
                                     </div>
                                 </div>
-
                                 <div class="background" style="font-size: 0px;">
                                     <div>Wall Fan</div>
                                 </div>
                             </article>
                         </label>
                     </section>
-
                     <div class="products-slider-seemore">
                         <a class="btn btn-outline-theme" href="{{url('shop')}}">
                             More Products
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
-
                     <script>
                         (function(slider_id, count) {
                             var ele = jQuery('.products-slider-container[data-id=' + slider_id + ']');
@@ -281,7 +274,7 @@
         </div>
     </section>
 
-    <section class="product-registration">
+    <section class="product-registration" id="product-registration">
         <div class="container">
 
             <h2 class="title-style-1  theme-normal">
@@ -289,21 +282,19 @@
             </h2>
             <div class="ta-c c-theme fs-15">Please register information to participate in the lucky draw event!</div>
 
-            <form class="mt-50 mb-100" id="product-registration" method="post" action="/?api=product-registration">
-
+            <form class="mt-50 mb-100" method="POST" action="{{route('product_registration.store')}}">
+                @csrf
                 <div class="col-auto mb-20">
                     <label class="sr-only" for="input-product_type">Product Type</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <img src="https://quatvietnam.com.vn/wp-content/themes/asiavina/assets/images/register-type.svg"
-                                    width="16" height="16" style="object-fit:contain">
+                            <div class="input-group-text @error('product_type')border-danger @enderror">
+                                <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652673326/register-type_yzqw0d.svg" width="16" height="16" style="object-fit:contain">
                             </div>
                         </div>
 
-                        <select class="form-control placeholder" name="product_type" id="input-product_type">
-                            <option value="" selected="" disabled="">Product Type</option>
-
+                        <select class="form-control placeholder @error('product_type')border-danger @enderror" name="product_type" id="input-product_type">
+                            <option value="" disabled selected>Product Type</option>
                             <option value="VY377990">VY377990</option>
                             <option value="VY357690">VY357690</option>
                             <option value="VY538790">VY538790</option>
@@ -454,12 +445,9 @@
                             <option value="T20004">T20004</option>
                             <option value="A16012">A16012</option>
                             <option value="D18004">D18004</option>
-                            <option value="Test 3">Test 3</option>
-                            <option value="Test 2">Test 2</option>
-                            <option value="NB 2">NB 2</option>
-                            <option value="Test 1">Test 1</option>
                         </select>
                     </div>
+                    @error('product_type') <p class="text-danger">{{$message}}</p> @enderror
                 </div>
 
 
@@ -467,15 +455,14 @@
                     <label class="sr-only" for="input-serial_number">Serial Number</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <img src="https://quatvietnam.com.vn/wp-content/themes/asiavina/assets/images/register-serial.svg"
+                            <div class="input-group-text @error('serial_number') border-danger @enderror">
+                                <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652673596/register-serial_ndlpa9.svg"
                                     width="16" height="16" style="object-fit:contain">
                             </div>
                         </div>
-
-                        <input type="text" name="serial_number" class="form-control" id="input-serial_number"
-                            placeholder="Serial Number" required="">
+                        <input type="text" name="serial_number" class="form-control @error('serial_number') border-danger @enderror" id="input-serial_number" placeholder="Serial Number" value="{{old('serial_number')}}">
                     </div>
+                    @error('serial_number') <p class="text-danger">{{$message}}</p> @enderror
                 </div>
 
 
@@ -483,14 +470,14 @@
                     <label class="sr-only" for="input-name">Your Name</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text @error('name') border-danger @enderror">
                                 <i class="fa-solid fa-user"></i>
                             </div>
                         </div>
 
-                        <input type="text" name="name" class="form-control" id="input-name" placeholder="Your Name"
-                            required="">
+                        <input type="text" name="name" class="form-control @error('name') border-danger @enderror" id="input-name" placeholder="Your Name" value="{{old('name')}}">
                     </div>
+                    @error('name') <p class="text-danger">{{$message}}</p> @enderror
                 </div>
 
 
@@ -498,14 +485,14 @@
                     <label class="sr-only" for="input-address">Address</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text @error('address') border-danger @enderror">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                         </div>
 
-                        <input type="text" name="address" class="form-control" id="input-address" placeholder="Address"
-                            required="">
+                        <input type="text" name="address" class="form-control @error('address') border-danger @enderror" id="input-address" placeholder="Address" value="{{old('address')}}">
                     </div>
+                    @error('address') <p class="text-danger">{{$message}}</p> @enderror
                 </div>
 
 
@@ -513,14 +500,14 @@
                     <label class="sr-only" for="input-phone">Phone Number</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text @error('phone_number') border-danger @enderror">
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                         </div>
 
-                        <input type="text" name="phone" class="form-control" id="input-phone" placeholder="Phone Number"
-                            required="">
+                        <input type="number" name="phone_number" class="form-control @error('phone_number') border-danger @enderror" id="input-phone" placeholder="Phone Number" value="{{old('phone_number')}}">
                     </div>
+                    @error('phone_number') <p class="text-danger">{{$message}}</p> @enderror
                 </div>
 
 
@@ -528,14 +515,14 @@
                     <label class="sr-only" for="input-email">Your Email</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text @error('email') border-danger @enderror">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                         </div>
 
-                        <input type="email" name="email" class="form-control" id="input-email" placeholder="Your Email"
-                            required="">
+                        <input type="text" name="email" class="form-control @error('email') border-danger @enderror" id="input-email" placeholder="Your Email" value="{{old('email')}}">
                     </div>
+                    @error('email') <p class="text-danger">{{$message}}</p> @enderror
                 </div>
 
 
@@ -543,26 +530,49 @@
                     <label class="sr-only" for="input-buy_date">Buy Date</label>
                     <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                            <div class="input-group-text">
+                            <div class="input-group-text @error('buy_date') border-danger @enderror">
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                         </div>
-
-
-                        <input type="text" onfocus="(this.type='date')" name="buy_date" class="form-control"
-                            id="input-buy_date" placeholder="Buy Date" required="">
+                        <input type="text" onfocus="(this.type='date')" name="buy_date" class="form-control @error('buy_date') border-danger @enderror" id="input-buy_date" placeholder="Buy Date" value="{{old('buy_date')}}">
                     </div>
+                    @error('buy_date') <p class="text-danger">{{$message}}</p> @enderror
                 </div>
 
                 <p class="ta-c mt-50">
-                    <button type="submit" class="btn btn-theme">Send</button>
+                    <button type="submit" class="btn btn-theme" id="submit">Send</button>
                 </p>
             </form>
         </div>
     </section>
-
+    @if(session('success'))
+        <script>
+            $(document).ready(function(){
+                $('html, body').animate({
+                    scrollTop: $("#product-registration").offset().top
+                }, 500);
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                });
+            })
+        </script>
+    @endif
+    @if($errors->first("product_type") || $errors->first("serial_number") || $errors->first("name") || $errors->first("address") || $errors->first("phone_number") || $errors->first("email") || $errors->first("buy_date"))
+        <script>
+            $(document).ready(function(){
+                $('html, body').animate({
+                    scrollTop: $("#product-registration").offset().top
+                }, 500);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                });
+            })
+        </script>
+    @endif
     <div class="d-none d-lg-block mb-50">&nbsp;</div>
-
     <section class="topics">
         <div class="container">
             <div class="topics">
@@ -580,21 +590,18 @@
                             </div>
                         </a>
                     </div>
-
                     <div class="col mb-20">
                         <a class="topic d-flex d-lg-block" href="{{url('customer-service')}}">
                             <div class="thumbnail">
                                 <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652079581/w-service-receptionist_r6jehe.png"
                                     alt="Customer service">
                             </div>
-
                             <div>
                                 <h3 class="title">Customer service</h3>
                                 <p>Find an authorized service partner nearest you.</p>
                             </div>
                         </a>
                     </div>
-
                     <div class="col mb-20">
                         <a class="topic d-flex d-lg-block" href="{{url('promotion')}}">
                             <div class="thumbnail">
@@ -608,28 +615,24 @@
                             </div>
                         </a>
                     </div>
-
                     <div class="col mb-20">
                         <a class="topic d-flex d-lg-block" href="{{url('about-us')}}">
                             <div class="thumbnail">
                                 <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652080588/about-us_tvvhjc.png"
                                     alt="About us">
                             </div>
-
                             <div>
                                 <h3 class="title">About us</h3>
                                 <p>History and information about us.</p>
                             </div>
                         </a>
                     </div>
-
                     <div class="col mb-20">
                         <a class="topic d-flex d-lg-block" href="{{url('contact-us')}}">
                             <div class="thumbnail">
                                 <img src="https://res.cloudinary.com/dxzwdejly/image/upload/v1652080610/contact_d2n8dy.png"
                                     alt="Contact us">
                             </div>
-
                             <div>
                                 <h3 class="title">Contact us</h3>
                                 <p>Our advisors are at your service.</p>
@@ -643,11 +646,11 @@
 @endsection
 
 @section('custom-scripts')
-    <script type="text/javascript" src="{{ url('js/jquery.flexslider.min.js') }}" id="metaslider-flex-slider-js"></script>
+    <script type="text/javascript" src="{{ url('js/jquery.flexslider.min.js') }}"></script>
     <script type="text/javascript" id="metaslider-flex-slider-js-after">
-        var metaslider_43 = function($) {
-            $('#metaslider_43').addClass('flexslider');
-            $('#metaslider_43').flexslider({
+        var metaslider = function($) {
+            $('#metaslider').addClass('flexslider');
+            $('#metaslider').flexslider({
                 slideshowSpeed: 3000,
                 animation: "fade",
                 controlNav: true,
@@ -661,13 +664,13 @@
                 fadeFirstSlide: false,
                 slideshow: true
             });
-            $(document).trigger('metaslider/initialized', '#metaslider_43');
+            $(document).trigger('metaslider/initialized', '#metaslider');
         };
-        var timer_metaslider_43 = function() {
-            var slider = !window.jQuery ? window.setTimeout(timer_metaslider_43, 100) : !jQuery.isReady ? window
-                .setTimeout(timer_metaslider_43, 1) : metaslider_43(window.jQuery);
+        var timer_metaslider = function() {
+            var slider = !window.jQuery ? window.setTimeout(timer_metaslider, 100) : !jQuery.isReady ? window
+                .setTimeout(timer_metaslider, 1) : metaslider(window.jQuery);
         };
-        timer_metaslider_43();
+        timer_metaslider();
     </script>
-    <script type="text/javascript" src="{{ url('js/jQuery.easing.min.js') }}" id="metaslider-easing-js"></script>
+    <script type="text/javascript" src="{{ url('js/jQuery.easing.min.js') }}"></script>
 @endsection

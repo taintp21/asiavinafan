@@ -49,9 +49,7 @@
                 @forelse ($partners as $r)
                     <div class="col">
                         <article class="partner">
-                            <img src="{{$r->images}}"
-                                class="attachment-asiavina_partner_thumbnail size-asiavina_partner_thumbnail wp-post-image"
-                                alt="" loading="lazy" width="185" height="55">
+                            <img src="{{$r->images}}" alt="" loading="lazy" width="185" height="55">
                         </article>
                     </div>
                 @empty

@@ -1,5 +1,5 @@
 @extends('backend.layouts.app')
-@section('title', 'Categories | Admin Panel')
+@section('title', 'Agents | Admin Panel')
 @section('plugins.Datatables', true)
 @section('plugins.Sweetalert2', true)
 @section('content_header')
@@ -10,7 +10,7 @@
     <div class="mb-3">
         <a class="btn btn-success" href="{{url('/admin/agents/create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
     </div>
-    <table class="table table-bordered" id="{{Request::segment(2)}}">
+    <table class="table" id="{{Request::segment(2)}}">
         <thead>
             <tr>
                 <th width="100px">#</th>
@@ -30,9 +30,9 @@
                     <td>{{$r->location}}</td>
                     <td>{{$r->phone}}</td>
                     <td>
-                        <a href="{{url('/admin/agents/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square fa-lg"></i></a>
+                        <a class="btn btn-warning btn-sm" href="{{url('/admin/agents/edit/'.$r->id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         &nbsp;&nbsp;
-                        <a href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can fa-lg"></i></a>
+                        <a class="btn btn-danger btn-sm" href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
             @endforeach
@@ -42,7 +42,7 @@
 @section('js')
     <script>
         $(document).ready(function() {
-            $("#{{Request::segment(2)}}").DataTable();
+            $("#{{Request::segment(2)}}").DataTable({order: [[0, 'desc']]});
         });
         function deleteItem(e){
             let id = e.getAttribute('data-id');

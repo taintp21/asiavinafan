@@ -14,6 +14,7 @@ class partners extends Model
     protected $table = "partners";
     protected $primaryKey = "id";
     protected $fillable = [
-        "images"
+        "images",
+        "publicId_cloudinary"
     ];
 }

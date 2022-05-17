@@ -16,6 +16,6 @@ class categories extends Model
     protected $table = "categories";
     protected $primaryKey = "id";
     protected $fillable = [
-        'id', 'name', 'slug', 'images'
+        'id', 'name', 'slug', 'images', 'publicId_cloudinary'
     ];
 }

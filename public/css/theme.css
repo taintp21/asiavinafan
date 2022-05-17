@@ -10,6 +10,22 @@ body {
     padding-top: 50px;
 }
 
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .wp-block-image img {
     height: auto;
 }
@@ -52,6 +68,57 @@ main.content-contact-us ul li:before {
     margin-left: -1em;
     transform: scale(1.5);
 }
+
+.avatar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: .5rem;
+    margin-bottom: .5rem;
+    /* Rounded border */
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+}
+
+.avatar__image {
+    /* Rounded border */
+    border-radius: 50%;
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Avatar */
+
+#dropdownUser.dropdown-toggle::after {
+    display: none;
+}
+
+div.dropdown>.avatar {
+    transition: transform 0.8s cubic-bezier(0, -1, .27, 1.55);
+}
+
+div.dropdown>.avatar.show {
+    transform: rotate(360deg);
+}
+
+div.dropdown>#menuAuth {
+    display: inherit;
+    transform: translate(69px, 19px) scaleX(0);
+    transition: all 1s cubic-bezier(0, -0.14, .27, 1.55);
+    transform-origin: left;
+    left: 0;
+}
+
+div.dropdown>.avatar.show+#menuAuth {
+    display: inherit;
+    transform: translate(69px, 19px) scaleX(1);
+}
+
+
+/* End */
 
 a {
     outline: none;
@@ -965,7 +1032,7 @@ a {
 }
 
 .single-product .col-right .price {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 30px;
 }

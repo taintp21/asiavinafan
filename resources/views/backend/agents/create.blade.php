@@ -1,6 +1,5 @@
 @extends('backend.layouts.app')
-@section('title','Create new category | Admin Panel')
-@section('plugins.BsCustomFileInput', true)
+@section('title','Create new agent | Admin Panel')
 @section('content_header')
     <h1>Create new agent</h1>
     @include('backend.breadcrumbs')

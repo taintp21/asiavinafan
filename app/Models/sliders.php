@@ -15,6 +15,7 @@ class sliders extends Model
     protected $primaryKey = "id";
     protected $fillable = [
         "images",
-        "title"
+        "title",
+        "publicId_cloudinary"
     ];
 }

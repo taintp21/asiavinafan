@@ -6,6 +6,7 @@ use App\Models\agents;
 use App\Models\sliders;
 use App\Models\products;
 use App\Models\categories;
+use App\Models\partners;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
@@ -34,38 +35,49 @@ class EventServiceProvider extends ServiceProvider
     {
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
             // Add some items to the menu...
-            $event->menu->add('CONTENT');
-            $event->menu->add([
+            $event->menu->add('MAIN PAGE');
+            $event->menu->add(
+                [
+                    'text'        => 'Dashboard',
+                    'url'         => 'admin',
+                    'icon'        => 'fa-solid fa-fw fa-gauge',
+                    'active'      => ['admin', 'regex:@^content/[0-9]+$@']
+                ],
+                [
                     'text'        => 'Categories',
                     'url'         => 'admin/categories',
-                    'icon'        => 'far fa-fw fa-file',
-                    'label'       => categories::count(),
-                    'label_color' => 'danger',
+                    'icon'        => 'fa-solid fa-fw fa-briefcase',
                     'active'      => ['admin/categories', 'admin/categories*', 'regex:@^content/[0-9]+$@']
                 ],
                 [
                     'text'        => 'Sliders',
                     'url'         => 'admin/sliders',
-                    'icon'        => 'far fa-fw fa-file',
-                    'label'       => sliders::count(),
-                    'label_color' => 'danger',
+                    'icon'        => 'fa-solid fa-fw fa-images',
                     'active'      => ['admin/sliders', 'admin/sliders*', 'regex:@^content/[0-9]+$@']
                 ],
                 [
                     'text'        => 'Products',
                     'url'         => 'admin/products',
-                    'icon'        => 'far fa-fw fa-file',
-                    'label'       => products::count(),
-                    'label_color' => 'danger',
+                    'icon'        => 'fa-solid fa-fw fa-box-open',
                     'active'      => ['admin/products', 'admin/products*', 'regex:@^content/[0-9]+$@']
                 ],
                 [
                     'text'        => 'Agents',
                     'url'         => 'admin/agents',
-                    'icon'        => 'far fa-fw fa-file',
-                    'label'       => agents::count(),
-                    'label_color' => 'danger',
+                    'icon'        => 'fa-solid fa-fw fa-people-group',
                     'active'      => ['admin/agents', 'admin/agents*', 'regex:@^content/[0-9]+$@']
+                ],
+                [
+                    'text'        => 'Partners',
+                    'url'         => 'admin/partners',
+                    'icon'        => 'fa-solid fa-fw fa-handshake',
+                    'active'      => ['admin/partners', 'admin/partners*', 'regex:@^content/[0-9]+$@']
+                ],
+                [
+                    'text'        => 'Contacts',
+                    'url'         => 'admin/contacts',
+                    'icon'        => 'fa-solid fa-fw fa-envelope',
+                    'active'      => ['admin/contacts', 'admin/contacts*', 'regex:@^content/[0-9]+$@']
                 ]
             );
         });

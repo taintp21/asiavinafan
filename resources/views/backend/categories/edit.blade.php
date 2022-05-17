@@ -21,7 +21,7 @@
                 <input type="text" class="form-control" name="slug" id="slug" value="{{$data->slug}}" readonly>
             </div>
             <div class="form-group">
-                <label for="images">Images</label>
+                <label for="images">Upload image</label>
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="images" id="images">
@@ -49,6 +49,8 @@
                     $('#preview-image-before-upload').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(this.files[0]);
+                var fileName = $(this).val().replace(/C:\\fakepath\\/i, '');
+                $(this).next('.custom-file-label').html(fileName);
             });
         });
     </script>
