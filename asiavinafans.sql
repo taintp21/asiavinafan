@@ -2,10 +2,10 @@
 -- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 17, 2022 lúc 03:52 PM
--- Phiên bản máy phục vụ: 10.4.14-MariaDB
--- Phiên bản PHP: 7.4.11
+-- Host: 127.0.0.1
+-- Generation Time: May 23, 2022 at 12:45 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `asiavinafans`
+-- Database: `asiavinafans`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `agents`
+-- Table structure for table `agents`
 --
 
 CREATE TABLE `agents` (
@@ -35,7 +35,7 @@ CREATE TABLE `agents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `agents`
+-- Dumping data for table `agents`
 --
 
 INSERT INTO `agents` (`id`, `name`, `location`, `phone`) VALUES
@@ -44,13 +44,12 @@ INSERT INTO `agents` (`id`, `name`, `location`, `phone`) VALUES
 (3, 'Home & Cook Thiên Phước', '\r\n844 Trường Chinh, Phường 15, Quận Tân Bình, Tp. HCM', '(028) 38153496'),
 (4, 'Home & Cook Kiệt Phúc', '\r\n84 Quốc lộ 1K, Phường Linh Xuân, Tp. Thủ Đức', '(028) 37246757'),
 (5, 'Home & Cook Chinh Bắc', '\r\n133 Kinh Dương Vương, Phường 13, Quận 6, Tp. HCM', '089 932 3639'),
-(6, 'Home & Cook Quang Minh', '\r\n25 Nguyễn Thị Nhỏ, Phường 9, Quận Tân Bình, Tp. HCM', '(028) 38651811'),
-(8, 'ok', 'ok', 'ok');
+(6, 'Home & Cook Quang Minh', '\r\n25 Nguyễn Thị Nhỏ, Phường 9, Quận Tân Bình, Tp. HCM', '(028) 38651811');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -58,28 +57,28 @@ CREATE TABLE `categories` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `images` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `publicId_cloudinary` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `publicId_cloudinary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `images`, `publicId_cloudinary`) VALUES
-(1, 'Floor Fan', 'floor-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652073321/VY636790-update-later_xsfjzb.png', NULL),
-(2, 'Ceiling Fan', 'ceiling-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652075282/QUAT-TRAN_qz81z2.jpg', NULL),
-(3, 'Desk Fan', 'desk-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652075408/QUAT-BAN_nh0jo2.png', NULL),
-(4, 'Slide Fan', 'slide-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076030/QUAT-LUNG_ylaw53.jpg', NULL),
-(5, 'Stand Fan', 'stand-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076091/QUAT-DUNG_x6uyxe.jpg', NULL),
-(6, 'Ventilation Fan', 'ventilation-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076126/quat-thong-gio_dpgzks.jpg', NULL),
-(7, 'Wall Fan', 'wall-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076137/QUAT-TREO_pndbt2.jpg', NULL),
-(8, 'Rechargeable Fan', 'rechargeable-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076244/QS1001-SV0_g02ppn.png', NULL),
-(9, 'Box Fan', 'box-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076253/quat-hop_su0yez.jpg', NULL);
+(1, 'Floor Fan', 'floor-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652073321/VY636790-update-later_xsfjzb.png', 'VY636790-update-later_xsfjzb'),
+(2, 'Ceiling Fan', 'ceiling-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652075282/QUAT-TRAN_qz81z2.jpg', 'QUAT-TRAN_qz81z2'),
+(3, 'Desk Fan', 'desk-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652075408/QUAT-BAN_nh0jo2.png', 'QUAT-BAN_nh0jo2'),
+(4, 'Slide Fan', 'slide-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076030/QUAT-LUNG_ylaw53.jpg', 'QUAT-LUNG_ylaw53'),
+(5, 'Stand Fan', 'stand-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076091/QUAT-DUNG_x6uyxe.jpg', 'QUAT-DUNG_x6uyxe'),
+(6, 'Ventilation Fan', 'ventilation-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076126/quat-thong-gio_dpgzks.jpg', 'quat-thong-gio_dpgzks'),
+(7, 'Wall Fan', 'wall-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076137/QUAT-TREO_pndbt2.jpg', 'QUAT-TREO_pndbt2'),
+(8, 'Rechargeable Fan', 'rechargeable-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076244/QS1001-SV0_g02ppn.png', 'QS1001-SV0_g02ppn'),
+(9, 'Box Fan', 'box-fan', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652076253/quat-hop_su0yez.jpg', 'quat-hop_su0yez');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -95,7 +94,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `media`
+-- Table structure for table `media`
 --
 
 CREATE TABLE `media` (
@@ -111,7 +110,7 @@ CREATE TABLE `media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `media`
+-- Dumping data for table `media`
 --
 
 INSERT INTO `media` (`id`, `medially_type`, `medially_id`, `file_url`, `file_name`, `file_type`, `size`, `created_at`, `updated_at`) VALUES
@@ -121,7 +120,7 @@ INSERT INTO `media` (`id`, `medially_type`, `medially_id`, `file_url`, `file_nam
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -131,7 +130,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -148,34 +147,35 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2022_05_09_062754_slider', 2),
 (13, '2020_06_14_000001_create_media_table', 3),
 (14, '2022_05_09_062754_sliders', 4),
-(15, '2022_05_16_055911_send_contact', 5);
+(15, '2022_05_16_055911_send_contact', 5),
+(17, '2022_05_23_053309_create_promotion_table', 6);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `partners`
+-- Table structure for table `partners`
 --
 
 CREATE TABLE `partners` (
   `id` int(10) UNSIGNED NOT NULL,
   `images` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `publicId_cloudinary` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `publicId_cloudinary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `partners`
+-- Dumping data for table `partners`
 --
 
 INSERT INTO `partners` (`id`, `images`, `publicId_cloudinary`) VALUES
-(1, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079068/ve-logo-emart-6676-copyw_ndo4d9.png', NULL),
-(2, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079079/pictures_library_170_20170615170542_5881-copy_jdrh1j.png', NULL),
-(3, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079095/deal_1-copy_bpmhuz.png', NULL),
-(4, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079340/1603962389-copy-165x100_j4bzar_saplpl.png', NULL);
+(1, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079068/ve-logo-emart-6676-copyw_ndo4d9.png', 've-logo-emart-6676-copyw_ndo4d9'),
+(2, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079079/pictures_library_170_20170615170542_5881-copy_jdrh1j.png', 'pictures_library_170_20170615170542_5881-copy_jdrh1j'),
+(3, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079095/deal_1-copy_bpmhuz.png', 'deal_1-copy_bpmhuz'),
+(4, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652079340/1603962389-copy-165x100_j4bzar_saplpl.png', '1603962389-copy-165x100_j4bzar_saplpl');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -187,7 +187,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -205,7 +205,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -222,7 +222,7 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `cateId`, `name`, `images`, `publicId_cloudinary`, `technical_specifications`, `featured`, `switch_height`, `thermal_fuse_protection`, `price`) VALUES
@@ -233,7 +233,7 @@ INSERT INTO `products` (`id`, `cateId`, `name`, `images`, `publicId_cloudinary`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product_registration`
+-- Table structure for table `product_registration`
 --
 
 CREATE TABLE `product_registration` (
@@ -248,7 +248,7 @@ CREATE TABLE `product_registration` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product_registration`
+-- Dumping data for table `product_registration`
 --
 
 INSERT INTO `product_registration` (`id`, `product_type`, `serial_number`, `name`, `address`, `phone_number`, `email`, `buy_date`) VALUES
@@ -267,7 +267,39 @@ INSERT INTO `product_registration` (`id`, `product_type`, `serial_number`, `name
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `send_contact`
+-- Table structure for table `promotions`
+--
+
+CREATE TABLE `promotions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `publicId_cloudinary` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `short_content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sale` tinyint(4) NOT NULL DEFAULT 0,
+  `userId` tinyint(4) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `promotions`
+--
+
+INSERT INTO `promotions` (`id`, `title`, `slug`, `image`, `publicId_cloudinary`, `short_content`, `content`, `sale`, `userId`, `created_at`, `updated_at`) VALUES
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1653296923/sale-off-va-sale-up-to-3_48bedf4ea1254e368be1699d9d389c9c_iwxrsj.jpg', 'sale-off-va-sale-up-to-3_48bedf4ea1254e368be1699d9d389c9c_iwxrsj', '<p><span style=\"white-space: pre-wrap;\">From Aug 31st to Sep 3rd 2018, Vietnam Fan Joint Stock Company (Asia Fan)Promotion with discount from 50% to 70%.</span></p>', '<h3>Lorem ipsum dolor sit amet</h3>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit eget neque vulputate porta a et libero. Cras eget aliquet ex. Fusce vitae mattis erat, ut tempor odio. Praesent eleifend vel nibh nec elementum. Donec congue fringilla tortor et mollis. Nunc tellus lectus, dapibus in sapien ut, dignissim aliquet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n<p>Vestibulum elit velit, scelerisque a congue sit amet, gravida sit amet ex. Nulla quis congue libero. Vestibulum a scelerisque arcu. In mattis volutpat fringilla. Mauris commodo aliquam consequat. Phasellus neque tellus, egestas ac orci a, convallis interdum est. Praesent sed urna nec ipsum euismod rutrum. Aenean est velit, maximus sit amet nisl et, cursus maximus erat. Proin congue euismod massa, a varius elit accumsan sed.</p>\r\n<p>Aenean vel scelerisque ligula. Pellentesque imperdiet eros in suscipit hendrerit. Vestibulum molestie, dui a suscipit eleifend, ante elit gravida metus, eget ornare leo lorem ut ipsum. Donec ex ante, mollis eu tincidunt sollicitudin, convallis dictum tortor. Morbi vestibulum imperdiet maximus. Duis consequat cursus varius. Cras hendrerit erat at risus molestie, sed pulvinar neque venenatis. Phasellus ac ullamcorper sem, vitae pulvinar nulla. Aenean massa neque, ornare eget nulla et, varius euismod nisl. Nam lectus sem, varius at suscipit sed, mattis id justo. Nulla maximus augue ut neque mollis aliquam. Quisque sollicitudin neque id sem fermentum, ut tincidunt nunc molestie. Vestibulum tellus leo, fringilla at lorem at, laoreet tincidunt mauris. Vestibulum condimentum dictum felis, eu auctor lacus accumsan eget. Etiam facilisis consectetur elit, et hendrerit turpis ultricies ut.</p>\r\n<p>In laoreet ligula diam, ac vulputate nulla dignissim quis. Nam venenatis felis id posuere blandit. Curabitur vestibulum, orci id vulputate blandit, enim ipsum hendrerit arcu, sit amet malesuada sapien erat quis leo. In a metus a augue suscipit dictum vitae ac nulla. Curabitur accumsan tempus nunc at sagittis. Sed sed ex nec risus interdum varius. Vestibulum in tincidunt turpis. Mauris finibus, erat at tempus dapibus, augue mauris accumsan diam, convallis facilisis odio purus a nunc. Duis suscipit eros nec leo consequat, id porta lacus consectetur. Mauris id tortor feugiat, lobortis erat eu, finibus dolor.</p>', 1, 1, '2022-05-23 08:45:32', '2022-05-23 09:27:40'),
+(2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit1', 'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit1', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1653282041/mega-sale-poster-banner-big-sale-clearance_68196-65_v5lntl.jpg', 'mega-sale-poster-banner-big-sale-clearance_68196-65_v5lnt', '<p><span style=\"white-space: pre-wrap;\">From Aug 31st to Sep 3rd 2018, Vietnam Fan Joint Stock Company (Asia Fan)Promotion with discount from 50% to 70%.</span></p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit eget neque vulputate porta a et libero. Cras eget aliquet ex. Fusce vitae mattis erat, ut tempor odio. Praesent eleifend vel nibh nec elementum. Donec congue fringilla tortor et mollis. Nunc tellus lectus, dapibus in sapien ut, dignissim aliquet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n<p>Vestibulum elit velit, scelerisque a congue sit amet, gravida sit amet ex. Nulla quis congue libero. Vestibulum a scelerisque arcu. In mattis volutpat fringilla. Mauris commodo aliquam consequat. Phasellus neque tellus, egestas ac orci a, convallis interdum est. Praesent sed urna nec ipsum euismod rutrum. Aenean est velit, maximus sit amet nisl et, cursus maximus erat. Proin congue euismod massa, a varius elit accumsan sed.</p>\r\n<p>Aenean vel scelerisque ligula. Pellentesque imperdiet eros in suscipit hendrerit. Vestibulum molestie, dui a suscipit eleifend, ante elit gravida metus, eget ornare leo lorem ut ipsum. Donec ex ante, mollis eu tincidunt sollicitudin, convallis dictum tortor. Morbi vestibulum imperdiet maximus. Duis consequat cursus varius. Cras hendrerit erat at risus molestie, sed pulvinar neque venenatis. Phasellus ac ullamcorper sem, vitae pulvinar nulla. Aenean massa neque, ornare eget nulla et, varius euismod nisl. Nam lectus sem, varius at suscipit sed, mattis id justo. Nulla maximus augue ut neque mollis aliquam. Quisque sollicitudin neque id sem fermentum, ut tincidunt nunc molestie. Vestibulum tellus leo, fringilla at lorem at, laoreet tincidunt mauris. Vestibulum condimentum dictum felis, eu auctor lacus accumsan eget. Etiam facilisis consectetur elit, et hendrerit turpis ultricies ut.</p>\r\n<p>In laoreet ligula diam, ac vulputate nulla dignissim quis. Nam venenatis felis id posuere blandit. Curabitur vestibulum, orci id vulputate blandit, enim ipsum hendrerit arcu, sit amet malesuada sapien erat quis leo. In a metus a augue suscipit dictum vitae ac nulla. Curabitur accumsan tempus nunc at sagittis. Sed sed ex nec risus interdum varius. Vestibulum in tincidunt turpis. Mauris finibus, erat at tempus dapibus, augue mauris accumsan diam, convallis facilisis odio purus a nunc. Duis suscipit eros nec leo consequat, id porta lacus consectetur. Mauris id tortor feugiat, lobortis erat eu, finibus dolor.</p>', 1, 1, '2022-05-23 09:09:29', '2022-05-23 09:09:29'),
+(3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit 2', 'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-2', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1653298030/sstu5j7i2yrgmxy4kqpz.jpg', 'sstu5j7i2yrgmxy4kqpz', '<p><span style=\"white-space: pre-wrap;\">From Aug 31st to Sep 3rd 2018, Vietnam Fan Joint Stock Company (Asia Fan)Promotion with discount from 50% to 70%.</span></p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit eget neque vulputate porta a et libero. Cras eget aliquet ex. Fusce vitae mattis erat, ut tempor odio. Praesent eleifend vel nibh nec elementum. Donec congue fringilla tortor et mollis. Nunc tellus lectus, dapibus in sapien ut, dignissim aliquet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n<p>Vestibulum elit velit, scelerisque a congue sit amet, gravida sit amet ex. Nulla quis congue libero. Vestibulum a scelerisque arcu. In mattis volutpat fringilla. Mauris commodo aliquam consequat. Phasellus neque tellus, egestas ac orci a, convallis interdum est. Praesent sed urna nec ipsum euismod rutrum. Aenean est velit, maximus sit amet nisl et, cursus maximus erat. Proin congue euismod massa, a varius elit accumsan sed.</p>\r\n<p>Aenean vel scelerisque ligula. Pellentesque imperdiet eros in suscipit hendrerit. Vestibulum molestie, dui a suscipit eleifend, ante elit gravida metus, eget ornare leo lorem ut ipsum. Donec ex ante, mollis eu tincidunt sollicitudin, convallis dictum tortor. Morbi vestibulum imperdiet maximus. Duis consequat cursus varius. Cras hendrerit erat at risus molestie, sed pulvinar neque venenatis. Phasellus ac ullamcorper sem, vitae pulvinar nulla. Aenean massa neque, ornare eget nulla et, varius euismod nisl. Nam lectus sem, varius at suscipit sed, mattis id justo. Nulla maximus augue ut neque mollis aliquam. Quisque sollicitudin neque id sem fermentum, ut tincidunt nunc molestie. Vestibulum tellus leo, fringilla at lorem at, laoreet tincidunt mauris. Vestibulum condimentum dictum felis, eu auctor lacus accumsan eget. Etiam facilisis consectetur elit, et hendrerit turpis ultricies ut.</p>\r\n<p>In laoreet ligula diam, ac vulputate nulla dignissim quis. Nam venenatis felis id posuere blandit. Curabitur vestibulum, orci id vulputate blandit, enim ipsum hendrerit arcu, sit amet malesuada sapien erat quis leo. In a metus a augue suscipit dictum vitae ac nulla. Curabitur accumsan tempus nunc at sagittis. Sed sed ex nec risus interdum varius. Vestibulum in tincidunt turpis. Mauris finibus, erat at tempus dapibus, augue mauris accumsan diam, convallis facilisis odio purus a nunc. Duis suscipit eros nec leo consequat, id porta lacus consectetur. Mauris id tortor feugiat, lobortis erat eu, finibus dolor.</p>', 1, 1, '2022-05-23 09:27:10', '2022-05-23 09:27:10'),
+(4, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit eget neque vulputate porta a et libero', 'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-nam-eget-velit-eget-neque-vulputate-porta-a-et-libero', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1653298199/rzb6hlucw8dwrjcghvh7.jpg', 'rzb6hlucw8dwrjcghvh7', '<p><span style=\"white-space: pre-wrap;\">From Aug 31st to Sep 3rd 2018, Vietnam Fan Joint Stock Company (Asia Fan)Promotion with discount from 50% to 70%.</span></p>', '<h3>Lorem ipsum dolor sit amet</h3>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit eget neque vulputate porta a et libero. Cras eget aliquet ex. Fusce vitae mattis erat, ut tempor odio. Praesent eleifend vel nibh nec elementum. Donec congue fringilla tortor et mollis. Nunc tellus lectus, dapibus in sapien ut, dignissim aliquet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n<p>Vestibulum elit velit, scelerisque a congue sit amet, gravida sit amet ex. Nulla quis congue libero. Vestibulum a scelerisque arcu. In mattis volutpat fringilla. Mauris commodo aliquam consequat. Phasellus neque tellus, egestas ac orci a, convallis interdum est. Praesent sed urna nec ipsum euismod rutrum. Aenean est velit, maximus sit amet nisl et, cursus maximus erat. Proin congue euismod massa, a varius elit accumsan sed.</p>\r\n<p>Aenean vel scelerisque ligula. Pellentesque imperdiet eros in suscipit hendrerit. Vestibulum molestie, dui a suscipit eleifend, ante elit gravida metus, eget ornare leo lorem ut ipsum. Donec ex ante, mollis eu tincidunt sollicitudin, convallis dictum tortor. Morbi vestibulum imperdiet maximus. Duis consequat cursus varius. Cras hendrerit erat at risus molestie, sed pulvinar neque venenatis. Phasellus ac ullamcorper sem, vitae pulvinar nulla. Aenean massa neque, ornare eget nulla et, varius euismod nisl. Nam lectus sem, varius at suscipit sed, mattis id justo. Nulla maximus augue ut neque mollis aliquam. Quisque sollicitudin neque id sem fermentum, ut tincidunt nunc molestie. Vestibulum tellus leo, fringilla at lorem at, laoreet tincidunt mauris. Vestibulum condimentum dictum felis, eu auctor lacus accumsan eget. Etiam facilisis consectetur elit, et hendrerit turpis ultricies ut.</p>\r\n<p>In laoreet ligula diam, ac vulputate nulla dignissim quis. Nam venenatis felis id posuere blandit. Curabitur vestibulum, orci id vulputate blandit, enim ipsum hendrerit arcu, sit amet malesuada sapien erat quis leo. In a metus a augue suscipit dictum vitae ac nulla. Curabitur accumsan tempus nunc at sagittis. Sed sed ex nec risus interdum varius. Vestibulum in tincidunt turpis. Mauris finibus, erat at tempus dapibus, augue mauris accumsan diam, convallis facilisis odio purus a nunc. Duis suscipit eros nec leo consequat, id porta lacus consectetur. Mauris id tortor feugiat, lobortis erat eu, finibus dolor.</p>', 1, 1, '2022-05-23 09:29:41', '2022-05-23 09:47:29'),
+(5, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit 4', 'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-4', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1653298449/hoq2knhatavlgugngcas.jpg', 'hoq2knhatavlgugngcas', '<p><span style=\"white-space: pre-wrap;\">From Aug 31st to Sep 3rd 2018, Vietnam Fan Joint Stock Company (Asia Fan)Promotion with discount from 50% to 70%.</span></p>', '<h3>Lorem ipsum dolor sit amet</h3>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget velit eget neque vulputate porta a et libero. Cras eget aliquet ex. Fusce vitae mattis erat, ut tempor odio. Praesent eleifend vel nibh nec elementum. Donec congue fringilla tortor et mollis. Nunc tellus lectus, dapibus in sapien ut, dignissim aliquet nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n<p>Vestibulum elit velit, scelerisque a congue sit amet, gravida sit amet ex. Nulla quis congue libero. Vestibulum a scelerisque arcu. In mattis volutpat fringilla. Mauris commodo aliquam consequat. Phasellus neque tellus, egestas ac orci a, convallis interdum est. Praesent sed urna nec ipsum euismod rutrum. Aenean est velit, maximus sit amet nisl et, cursus maximus erat. Proin congue euismod massa, a varius elit accumsan sed.</p>\r\n<p>Aenean vel scelerisque ligula. Pellentesque imperdiet eros in suscipit hendrerit. Vestibulum molestie, dui a suscipit eleifend, ante elit gravida metus, eget ornare leo lorem ut ipsum. Donec ex ante, mollis eu tincidunt sollicitudin, convallis dictum tortor. Morbi vestibulum imperdiet maximus. Duis consequat cursus varius. Cras hendrerit erat at risus molestie, sed pulvinar neque venenatis. Phasellus ac ullamcorper sem, vitae pulvinar nulla. Aenean massa neque, ornare eget nulla et, varius euismod nisl. Nam lectus sem, varius at suscipit sed, mattis id justo. Nulla maximus augue ut neque mollis aliquam. Quisque sollicitudin neque id sem fermentum, ut tincidunt nunc molestie. Vestibulum tellus leo, fringilla at lorem at, laoreet tincidunt mauris. Vestibulum condimentum dictum felis, eu auctor lacus accumsan eget. Etiam facilisis consectetur elit, et hendrerit turpis ultricies ut.</p>\r\n<p>In laoreet ligula diam, ac vulputate nulla dignissim quis. Nam venenatis felis id posuere blandit. Curabitur vestibulum, orci id vulputate blandit, enim ipsum hendrerit arcu, sit amet malesuada sapien erat quis leo. In a metus a augue suscipit dictum vitae ac nulla. Curabitur accumsan tempus nunc at sagittis. Sed sed ex nec risus interdum varius. Vestibulum in tincidunt turpis. Mauris finibus, erat at tempus dapibus, augue mauris accumsan diam, convallis facilisis odio purus a nunc. Duis suscipit eros nec leo consequat, id porta lacus consectetur. Mauris id tortor feugiat, lobortis erat eu, finibus dolor.</p>', 0, 1, '2022-05-23 09:34:09', '2022-05-23 09:34:09'),
+(6, 'Lorem ipsum 1234 56789 10 18158jfoasnfosa', 'lorem-ipsum-1234-56789-10-18158jfoasnfosa', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1653302657/wcqyw3gbmqhtzidgijb3.jpg', 'wcqyw3gbmqhtzidgijb3', '<p>abcxyz</p>', '<h3>xyz</h3>', 1, 1, '2022-05-23 10:42:46', '2022-05-23 10:44:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `send_contact`
 --
 
 CREATE TABLE `send_contact` (
@@ -278,7 +310,7 @@ CREATE TABLE `send_contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `send_contact`
+-- Dumping data for table `send_contact`
 --
 
 INSERT INTO `send_contact` (`id`, `nameContact`, `emailContact`, `contentContact`) VALUES
@@ -287,7 +319,7 @@ INSERT INTO `send_contact` (`id`, `nameContact`, `emailContact`, `contentContact
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `sliders`
+-- Table structure for table `sliders`
 --
 
 CREATE TABLE `sliders` (
@@ -298,18 +330,18 @@ CREATE TABLE `sliders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `sliders`
+-- Dumping data for table `sliders`
 --
 
 INSERT INTO `sliders` (`id`, `images`, `title`, `publicId_cloudinary`) VALUES
-(1, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652077966/quatvietnam-b1_xse1q2.jpg', 'quatvietnam-b1', NULL),
-(2, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652078181/b-quatvietnam-150721_kejzby.jpg', 'b-quatvietnam-150721', NULL),
-(3, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652078247/b-quatvietnam-3_d1vqzl.jpg', 'b-quatvietnam-3', NULL);
+(1, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652077966/quatvietnam-b1_xse1q2.jpg', 'quatvietnam-b1', 'quatvietnam-b1_xse1q2'),
+(2, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652078181/b-quatvietnam-150721_kejzby.jpg', 'b-quatvietnam-150721', 'b-quatvietnam-150721_kejzby'),
+(3, 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652078247/b-quatvietnam-3_d1vqzl.jpg', 'b-quatvietnam-3', 'b-quatvietnam-3_d1vqzl');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `usage_tips`
+-- Table structure for table `usage_tips`
 --
 
 CREATE TABLE `usage_tips` (
@@ -319,7 +351,7 @@ CREATE TABLE `usage_tips` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `usage_tips`
+-- Dumping data for table `usage_tips`
 --
 
 INSERT INTO `usage_tips` (`id`, `title`, `content`) VALUES
@@ -336,7 +368,7 @@ INSERT INTO `usage_tips` (`id`, `title`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -353,63 +385,63 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `isAdmin`, `created_at`, `updated_at`) VALUES
-(1, 'Tai Nguyen', 'taintp21@gmail.com', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652632159/icawmtfoimtmjypbrnd3.jpg', NULL, '$2y$10$iqKmuBeek9UUoFFZtd9MI.Yfuf4L6A8wJQUpyGpgt6/x1zg1Y2JlC', 'dTqP9fGPbyyY60pJHzGREQDOb7aAowE1SgrRZl7dqFnMcuwMynVaQ5GM1K2F', 1, '2022-05-12 02:06:28', '2022-05-16 10:40:19');
+(1, 'Tai Nguyen', 'taintp21@gmail.com', 'https://res.cloudinary.com/dxzwdejly/image/upload/v1652632159/icawmtfoimtmjypbrnd3.jpg', NULL, '$2y$10$iqKmuBeek9UUoFFZtd9MI.Yfuf4L6A8wJQUpyGpgt6/x1zg1Y2JlC', 'vI6wl1CsxVuxZb4VmxmLPDPHaPgjTFV9KZ19ddJvxOC2vzBKTPkmVuK7YDAF', 1, '2022-05-12 02:06:28', '2022-05-16 10:40:19');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `agents`
+-- Indexes for table `agents`
 --
 ALTER TABLE `agents`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `slug` (`slug`);
 
 --
--- Chỉ mục cho bảng `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Chỉ mục cho bảng `media`
+-- Indexes for table `media`
 --
 ALTER TABLE `media`
   ADD PRIMARY KEY (`id`),
   ADD KEY `media_medially_type_medially_id_index` (`medially_type`,`medially_id`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `partners`
+-- Indexes for table `partners`
 --
 ALTER TABLE `partners`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Chỉ mục cho bảng `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -417,120 +449,134 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `product_registration`
+-- Indexes for table `product_registration`
 --
 ALTER TABLE `product_registration`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `send_contact`
+-- Indexes for table `promotions`
+--
+ALTER TABLE `promotions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `promotions_title_unique` (`title`),
+  ADD UNIQUE KEY `promotions_slug_unique` (`slug`);
+
+--
+-- Indexes for table `send_contact`
 --
 ALTER TABLE `send_contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `sliders`
+-- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `usage_tips`
+-- Indexes for table `usage_tips`
 --
 ALTER TABLE `usage_tips`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `agents`
+-- AUTO_INCREMENT for table `agents`
 --
 ALTER TABLE `agents`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT cho bảng `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `media`
+-- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT cho bảng `partners`
+-- AUTO_INCREMENT for table `partners`
 --
 ALTER TABLE `partners`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT cho bảng `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `product_registration`
+-- AUTO_INCREMENT for table `product_registration`
 --
 ALTER TABLE `product_registration`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `send_contact`
+-- AUTO_INCREMENT for table `promotions`
+--
+ALTER TABLE `promotions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `send_contact`
 --
 ALTER TABLE `send_contact`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `sliders`
+-- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT cho bảng `usage_tips`
+-- AUTO_INCREMENT for table `usage_tips`
 --
 ALTER TABLE `usage_tips`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
