@@ -1,20 +1,38 @@
 @extends('backend.layouts.app')
-@section('title','Sliders | Admin Panel')
+@section('title','Promotions | Admin Panel')
 @section('plugins.Datatables', true)
 @section('plugins.Sweetalert2', true)
 @section('content_header')
-    <h1>Sliders</h1>
+    <h1>Promotions</h1>
     @include('backend.breadcrumbs')
+@stop
+@section('css')
+    <style>
+        .truncate{
+            color: black;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
 @stop
 @section('content')
     <div class="mb-3">
-        <a class="btn btn-success" href="{{route('sliders.create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
+        <a class="btn btn-success" href="{{route('promotions.create')}}"><i class="fa-solid fa-plus"></i> Create new</a>
     </div>
     <table class="table" id="{{Request::segment(2)}}">
         <thead>
             <tr>
                 <th width="100px">#</th>
-                <th width="200px">Image</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Image</th>
+                <th>Short Content</th>
+                <th>Content</th>
+                <th>On sale</th>
+                <th>User</th>
+                <th>Updated at</th>
                 <th width="100px">Action</th>
             </tr>
         </thead>
@@ -23,10 +41,17 @@
             @foreach ($data as $r)
                 @php $order++; @endphp
                 <tr>
-                    <th>{{$order}}</th>
-                    <td><img src="{{$r->images}}" height="100px"></td>
+                    <td>{{$order}}</td>
+                    <td>{{$r->title}}</td>
+                    <td>{{$r->slug}}</td>
+                    <td><img src="{{$r->image}}" height="100px"></td>
+                    <td><span class="truncate">{!!$r->short_content!!}</span></td>
+                    <td><span class="truncate">{!!$r->content!!}</span></td>
+                    <td>@if ($r->sale == 1) Yes @else No @endif</td>
+                    <td>{{DB::table('users')->select("name")->where("id","=",$r->userId)->first()->name}}</td>
+                    <td>{{$r->updated_at}}</td>
                     <td>
-                        <a class="btn btn-warning btn-sm" href="{{route('sliders.edit', ['id' => $r->id])}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a class="btn btn-warning btn-sm" href="{{route('promotions.edit', ['id' => $r->id])}}"><i class="fa-solid fa-pen-to-square"></i></a>
                         &nbsp;&nbsp;
                         <a class="btn btn-danger btn-sm" href="#" onclick="deleteItem(this)" data-id="{{$r->id}}"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
@@ -42,7 +67,7 @@
         });
         function deleteItem(e){
             let id = e.getAttribute('data-id');
-            var self = "{{ url('/admin/sliders/delete') }}" + "/" + id;
+            var self = "{{ url('/admin/promotions/delete') }}" + "/" + id;
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",

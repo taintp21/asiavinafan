@@ -6,6 +6,7 @@ use App\Models\sliders;
 use App\Models\partners;
 use App\Models\products;
 use App\Models\categories;
+use App\Models\promotions;
 use App\Models\usage_tips;
 use App\Models\send_contact;
 use Illuminate\Http\Request;
@@ -72,7 +73,7 @@ class HomeController extends Controller
         $categories = categories::all();
         $product = products::where('name','LIKE',$slug)->first();
         $cateName = categories::select('name')->where('id','=',$product->cateId)->first();
-        $random10Products = products::inRandomOrder()->take(10)->get();
+        $random10Products = products::whereNotIn('id', [$product->id])->inRandomOrder()->take(10)->get();
         return view('frontend.product', compact('categories', 'cateName', 'product', 'slug', 'random10Products'));
     }
 
@@ -108,7 +109,23 @@ class HomeController extends Controller
     //Promotion
     public function promotion(){
         $categories = categories::all();
-        return view('frontend.promotion', compact('categories'));
+        $where = promotions::where("sale","=","1")->orderBy("id","desc");
+        $top_sale1 = $where->first();
+        $top_sale2 = $where->skip(1)->take(1)->first();
+        $top_sale3 = $where->skip(2)->take(1)->first();
+        $top_sale4 = $where->skip(3)->take(1)->first();
+        $promotions = promotions::orderBy("id","desc")->get();
+        return view('frontend.promotion', compact('categories', 'promotions', "top_sale1", "top_sale2", "top_sale3", "top_sale4"));
+    }
+
+    public function one_promotion($slug){
+        $categories = categories::all();
+        $one_promotion = promotions::where("slug","=",$slug)->first();
+        $random3Promotions = promotions::whereNotIn('id', [$one_promotion->id])->inRandomOrder()->take(3)->get();
+        //Button
+        $previous = promotions::where('id', '<', $one_promotion->id)->orderBy('id','desc')->first();
+        $next = promotions::where('id', '>', $one_promotion->id)->orderBy('id')->first();
+        return view('frontend.one_promotion', compact('categories', 'one_promotion', 'random3Promotions', 'previous', 'next'));
     }
 
     //About us

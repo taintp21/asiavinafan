@@ -14,7 +14,7 @@
             @csrf
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Enter category name" onkeyup="ChangeToSlug();" value="{{$data->name}}">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter category name" onkeyup="ChangeNameToSlug();" value="{{$data->name}}">
             </div>
             <div class="form-group">
                 <label for="slug">Slug</label>

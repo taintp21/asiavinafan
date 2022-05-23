@@ -68,6 +68,18 @@
         <div class="col-lg-3 col-6">
             <div class="small-box bg-info">
                 <div class="inner">
+                    <h3>{{DB::table('promotions')->count();}}</h3>
+                    <p>Promotions</p>
+                </div>
+                <div class="icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <a href="{{url('/admin/promotions')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-6">
+            <div class="small-box bg-light">
+                <div class="inner">
                     <h3>{{DB::table('send_contact')->count();}}</h3>
                     <p>Contacts</p>
                 </div>

@@ -21,7 +21,7 @@
         @include('frontend.layouts.contact_modal')
         @if (Auth::check())
             <div class="dropdown dropend">
-                <div class="dropdown-toggle avatar" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                <div class="avatar" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
                     <img class="avatar__image" src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" />
                 </div>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser" id="menuAuth">

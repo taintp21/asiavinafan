@@ -74,11 +74,17 @@ class EventServiceProvider extends ServiceProvider
                     'active'      => ['admin/partners', 'admin/partners*', 'regex:@^content/[0-9]+$@']
                 ],
                 [
+                    'text'        => 'Promotions',
+                    'url'         => 'admin/promotions',
+                    'icon'        => 'fa-solid fa-fw fa-book-open',
+                    'active'      => ['admin/promotions', 'admin/promotions*', 'regex:@^content/[0-9]+$@']
+                ],
+                [
                     'text'        => 'Contacts',
                     'url'         => 'admin/contacts',
                     'icon'        => 'fa-solid fa-fw fa-envelope',
                     'active'      => ['admin/contacts', 'admin/contacts*', 'regex:@^content/[0-9]+$@']
-                ]
+                ],
             );
         });
     }

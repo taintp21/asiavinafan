@@ -2,7 +2,7 @@
 
 @section('plugins.BsCustomFileInput', true)
 @section('content_header')
-    <h1>Add new image on sliders</h1>
+    <h1>Edit image on sliders</h1>
     @include('backend.breadcrumbs')
 @stop
 @section('content')
@@ -21,11 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control title" name="title" id="title" value="{{$data->title}}" readonly>
-            </div>
-
+            <input type="hidden" class="form-control title" name="title" id="title" value="{{$data->title}}">
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Update</button>
             </div>

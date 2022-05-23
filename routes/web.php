@@ -10,6 +10,7 @@ use App\Http\Controllers\contactsController;
 use App\Http\Controllers\partnersController;
 use App\Http\Controllers\productsController;
 use App\Http\Controllers\categoriesController;
+use App\Http\Controllers\promotionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('/warranty-policy', [HomeController::class, 'warranty_policy']);
 Route::get('/exchange-policy', [HomeController::class, 'exchange_policy']);
 Route::get('usage-tips', [HomeController::class, 'usage_tips']);
 Route::get('/promotion', [HomeController::class, 'promotion']);
+Route::get('/promotion/{slug}', [HomeController::class, 'one_promotion']);
 Route::get('/about-us', [HomeController::class, 'about_us']);
 Route::get('contact-us', [HomeController::class, 'contact_us']);
 Route::get('/product-category/{slug}', [HomeController::class, 'product_category']);
@@ -94,6 +96,16 @@ Route::name('partners.')->group(function(){
     Route::get('/admin/partners/edit/{id}', [partnersController::class, 'edit'])->name('edit')->middleware('auth');
     Route::post('/admin/partners/update/{id}', [partnersController::class, 'update'])->name('update')->middleware('auth');
     Route::get('/admin/partners/delete/{id}', [partnersController::class, 'destroy'])->name('delete')->middleware('auth');
+});
+
+//Promotions
+Route::name('promotions.')->group(function(){
+    Route::get('/admin/promotions', [promotionsController::class, 'index'])->name('index')->middleware('auth');
+    Route::get('/admin/promotions/create', [promotionsController::class, 'create'])->name('create')->middleware('auth');
+    Route::post('/admin/promotions/store', [promotionsController::class, 'store'])->name('store')->middleware('auth');
+    Route::get('/admin/promotions/edit/{id}', [promotionsController::class, 'edit'])->name('edit')->middleware('auth');
+    Route::post('/admin/promotions/update/{id}', [promotionsController::class, 'update'])->name('update')->middleware('auth');
+    Route::get('/admin/promotions/delete/{id}', [promotionsController::class, 'destroy'])->name('delete')->middleware('auth');
 });
 
 //Contacts

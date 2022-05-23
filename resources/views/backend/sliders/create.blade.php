@@ -21,11 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control title" name="title" id="title" value="{{old('title')}}" readonly>
-            </div>
-
+            <input type="hidden" class="form-control title" name="title" id="title">
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Insert</button>
             </div>
