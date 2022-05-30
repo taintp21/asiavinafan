@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('title','Create product | Admin Panel')
+@section('plugins.Select2', true)
 @section('plugins.BootstrapSwitch', true)
 @section('content_header')
     <h1>Create product</h1>

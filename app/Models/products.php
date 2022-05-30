@@ -24,4 +24,7 @@ class products extends Model
         "thermal_fuse_protection",
         "price"
     ];
+    public function category(){
+        return $this->belongsTo(categories::class);
+    }
 }

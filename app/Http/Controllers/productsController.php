@@ -11,7 +11,8 @@ class productsController extends Controller
 {
     public function index(){
         $data = products::all();
-        return view('backend.products.index', compact('data'));
+        $categories = categories::all();
+        return view('backend.products.index', compact('data', 'categories'));
     }
 
     public function create(){

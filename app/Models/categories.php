@@ -18,4 +18,8 @@ class categories extends Model
     protected $fillable = [
         'id', 'name', 'slug', 'images', 'publicId_cloudinary'
     ];
+
+    public function products(){
+        return $this->hasMany(products::class);
+    }
 }
