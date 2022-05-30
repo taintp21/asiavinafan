@@ -50,11 +50,11 @@
                 <textarea name="featured" id="featured"></textarea>
             </div>
             <div class="form-group">
-                <label for="switch_height">Switch Height</label>
+                <label for="switch_height">Switch Height</label><br>
                 <input type="checkbox" data-toggle="switch" name="switch_height">
             </div>
             <div class="form-group">
-                <label for="thermal_fuse_protection">Thermal Fuse Protection</label>
+                <label for="thermal_fuse_protection">Thermal Fuse Protection</label><br>
                 <input type="checkbox" data-toggle="switch" name="thermal_fuse_protection">
             </div>
             <div class="form-group">
