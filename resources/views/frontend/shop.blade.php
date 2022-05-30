@@ -97,27 +97,27 @@
                             List of {{$r->name}} <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
-
-                    <script>
-                        (function(slider_id, count) {
-                            var ele = jQuery('.products-slider-container[data-id=' + slider_id + ']');
-
-                            ele.find('.background').fitText(0.6);
-
-                            ele.find('.products-slider-prev').click(function() {
-                                var r = ele.find('input:checked').prev();
-                                if (!r.is('[type=radio]')) r = ele.find('[type=radio]').last();
-                                r.prop("checked", true);
-                            });
-
-                            ele.find('.products-slider-next').click(function() {
-                                var r = ele.find('input:checked').next();
-                                if (!r.is('[type=radio]')) r = ele.find('[type=radio]').first();
-                                r.prop("checked", true);
-                            });
-                        })(0, 2);
-                    </script>
                 </div>
+                <script>
+                    function slider(slider_id) {
+                        var ele = jQuery('.products-slider-container[data-id=' + slider_id + ']');
+
+                        ele.find('.background').fitText(0.6);
+
+                        ele.find('.products-slider-prev').click(function() {
+                            var r = ele.find('input:checked').prev();
+                            if (!r.is('[type=radio]')) r = ele.find('[type=radio]').last();
+                            r.prop("checked", true);
+                        });
+
+                        ele.find('.products-slider-next').click(function() {
+                            var r = ele.find('input:checked').next();
+                            if (!r.is('[type=radio]')) r = ele.find('[type=radio]').first();
+                            r.prop("checked", true);
+                        });
+                    };
+                    slider({{$slider_count-1}});
+                </script>
                 @php $id1 = 1; $id2 = 1; $data_id = 0; @endphp
             @endif
         @endforeach
