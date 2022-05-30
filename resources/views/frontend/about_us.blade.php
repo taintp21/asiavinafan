@@ -546,5 +546,5 @@
     </p>
 @endsection
 @section('custom-scripts')
-    <script type="text/javascript" src="{{ url('js/jquery.flexslider.min.js') }}" id="metaslider-flex-slider-js"></script>
+    <script type="text/javascript" src="{{ url('js/jquery/jquery.flexslider.min.js') }}" id="metaslider-flex-slider-js"></script>
 @endsection

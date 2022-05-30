@@ -14,6 +14,13 @@
         td > table td{
             border-top: none!important;
         }
+        .truncate{
+            color: black;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 @stop
 @section('content')

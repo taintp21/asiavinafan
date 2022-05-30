@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('web-title') {{strtoupper(Request::segment(2))}} | {{$cateName->name}} @stop
+@section('web-title') {{strtoupper(str_replace("+"," ",Request::segment(2)))}} | {{$cateName->name}} @stop
 
 @section('link-include')
     <link rel="stylesheet" href="{{ asset('css/public.css') }}" type="text/css" media="all" property="stylesheet">
@@ -45,12 +45,12 @@
                 <div class="row row-cols-1 row-cols-md-2">
                     <div class="col d-none d-md-block">
                         <div>
-                            <h1 class="title">{{ strtoupper($slug) }}</h1>
+                            <h1 class="title">{{ strtoupper(str_replace("+"," ",$slug)) }}</h1>
                             <p></p>
                             <div class="su-heading su-heading-style-default su-heading-align-center" style="margin-bottom:20px">
                                 <h4 style="color: #315377; font-weight: 300">TECHNICAL SPECIFICATIONS</h4>
                             </div>
-                            <div class="memorize_new_word_loading" id="technical_specifications">
+                            <div id="technical_specifications">
                                 {!! $product->technical_specifications !!}
                             </div>
                             <p>&nbsp;</p>
@@ -101,12 +101,12 @@
                             <div class="su-heading su-heading-style-default su-heading-align-center" style="font-size:13px;margin-bottom:20px">
                                 <h4>TECHNICAL SPECIFICATIONS</h4>
                             </div>
-                            <div class="memorize_new_word_loading" id="technical_specifications">
+                            <div id="technical_specifications">
                                 {!! $product->technical_specifications !!}
                             </div>
                             <p>&nbsp;</p>
                             <h4>Featured</h4>
-                            {!! $product->featured !!}
+                                {!! $product->featured !!}
                             <p></p>
                         </div>
                     </div>
@@ -159,20 +159,20 @@
             </div>
         </section>
         @if ($product->switch_height == 1 && $product->thermal_fuse_protection == 0)
-            <script>
+        <script>
                 $("#technical_specifications table tbody tr:first td:nth-child(3)").html('<i class="fa-solid fa-circle-check text-success"></i> Switch height');
-            </script>
+        </script>
         @endif
         @if($product->switch_height == 0 && $product->thermal_fuse_protection == 1)
-            <script>
-                $("#technical_specifications table tbody tr:first td:nth-child(3)").html('<i class="fa-solid fa-circle-check text-success"></i> Thermal fuse protection');
-            </script>
+        <script>
+            $("#technical_specifications table tbody tr:first td:nth-child(3)").html('<i class="fa-solid fa-circle-check text-success"></i> Thermal fuse protection');
+        </script>
         @endif
         @if ($product->switch_height == 1 && $product->thermal_fuse_protection == 1)
-            <script>
-                $("#technical_specifications table tbody tr:first td:nth-child(3)").html('<i class="fa-solid fa-circle-check text-success"></i> Switch height');
-                $("#technical_specifications table tbody tr:nth-child(2) td:nth-child(3)").html('<i class="fa-solid fa-circle-check text-success"></i> Thermal fuse protection');
-            </script>
+        <script>
+            $("#technical_specifications table tbody tr:first td:nth-child(3)").html('<i class="fa-solid fa-circle-check text-success"></i> Switch height');
+            $("#technical_specifications table tbody tr:nth-child(2) td:nth-child(3)").html('<i class="fa-solid fa-circle-check text-success"></i> Thermal fuse protection');
+        </script>
         @endif
 @endsection
 

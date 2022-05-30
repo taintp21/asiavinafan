@@ -10,6 +10,7 @@ use App\Models\promotions;
 use App\Models\usage_tips;
 use App\Models\send_contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\product_registration;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,8 @@ class HomeController extends Controller
     public function index(){
         $categories = categories::orderBy('id', 'desc')->get();
         $sliders = sliders::orderBy('id','desc')->get();
-        return view('frontend.index', compact('categories', 'sliders'));
+        $products = products::orderBy("id","desc")->get();
+        return view('frontend.index', compact('categories', 'sliders', 'products'));
     }
 
     public function product_registration_store(Request $request){
@@ -58,7 +60,8 @@ class HomeController extends Controller
 
     public function shop(){
         $categories = categories::all();
-        return view('frontend.shop', compact('categories'));
+        $products = products::all();
+        return view('frontend.shop', compact('categories', 'products'));
     }
 
     public function product_category($slug){
@@ -71,7 +74,7 @@ class HomeController extends Controller
     //1 Product
     public function product($slug){
         $categories = categories::all();
-        $product = products::where('name','LIKE',$slug)->first();
+        $product = products::where('name','LIKE',str_replace(" ","+",$slug))->first();
         $cateName = categories::select('name')->where('id','=',$product->cateId)->first();
         $random10Products = products::whereNotIn('id', [$product->id])->inRandomOrder()->take(10)->get();
         return view('frontend.product', compact('categories', 'cateName', 'product', 'slug', 'random10Products'));

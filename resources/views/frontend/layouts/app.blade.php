@@ -9,9 +9,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="{{ url('css/theme.css') }}">
-    <link rel="stylesheet" href="{{url('css/style.min.css')}}">
+    <script src="{{ asset('js/jquery/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/jquery/jquery.fittext.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
     @yield('link-include')
 </head>
 <body @yield('body-class')>
@@ -35,7 +36,7 @@
 
     @include('frontend.layouts.footer')
     @include('frontend.layouts.search')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     @yield('custom-scripts')
 </body>
 </html>

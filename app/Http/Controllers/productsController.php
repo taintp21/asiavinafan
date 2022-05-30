@@ -23,7 +23,7 @@ class productsController extends Controller
         $insert = $request->all();
         $products = new products();
         $products->cateId = $insert['cateId'];
-        $products->name = $insert['name'];
+        $products->name = str_replace(" ", "+", $insert['name']);
 
         $image_cloudinary = '';
         if($request->hasFile('images')){
@@ -57,7 +57,7 @@ class productsController extends Controller
 
         $products = products::find($id);
         $products->cateId = $input['cateId'];
-        $products->name = $input['name'];
+        $products->name = str_replace(" ", "+", $input['name']);
 
         $image_cloudinary = '';
         if($request->hasFile('images')){

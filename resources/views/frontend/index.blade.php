@@ -128,123 +128,47 @@
             <div class="product-topics-item" data-id="best-selling" style="display: block;">
 
                 <div class="products-slider-container" data-id="1">
+                    <div class="products-slider-prev"></div>
+                    <div class="products-slider-next"></div>
+
                     <section class="products-slider">
-                        <input type="radio" name="slider1" data-slider-id="1" data-id="s1" id="product_slider_item_1_1"
-                            checked="">
-                        <input type="radio" name="slider1" data-slider-id="1" data-id="s2" id="product_slider_item_1_2">
-                        <input type="radio" name="slider1" data-slider-id="1" data-id="s3" id="product_slider_item_1_3">
-
-                        <label data-id="slide1" for="product_slider_item_1_1">
-                            <article class="product product-slider-item first">
-                                <div class="product-layout">
-                                    <div class="left-col">
-                                        <div class="category">
-                                            <a href="https://quatvietnam.com.vn/product-category/ventilation-fan/">Ventilation
-                                                Fan</a>
+                        @php $id = 0; @endphp
+                        @foreach ($products as $r)
+                            @php $id++; @endphp
+                            <input type="radio" name="slider1" data-slider-id="1" data-id="s{{$id}}" id="product_slider_item_1_{{$id}}">
+                        @endforeach
+                        <script>$("#product_slider_item_1_1").attr("checked", "checked");</script>
+                        @php $id = 0; @endphp
+                        @foreach ($products as $r)
+                            @php $id++; @endphp
+                            <label data-id="slide{{$id}}" for="product_slider_item_1_{{$id}}">
+                                <article class="product-slider-item">
+                                    <div class="product-layout">
+                                        <div class="left-col">
+                                            <div class="category">
+                                                <a href="{{ url('product-category/'.DB::table("categories")->where("id","=",$r->cateId)->first()->slug) }}">{{DB::table("categories")->where("id","=",$r->cateId)->first()->name}}</a>
+                                            </div>
+                                            <h2 class="title">{{str_replace("+"," ",$r->name)}}</h2>
+                                            <a class="seemore btn btn-theme" href="{{ url('product/'. strtolower($r->name)) }}">Information</a>
                                         </div>
-
-                                        <h2 class="title">V04001-SV0</h2>
-                                        <a class="seemore btn btn-theme"
-                                            href="https://quatvietnam.com.vn/product/v04001-sv0/">Information</a>
-                                    </div>
-
-                                    <div class="right-col thumbnail">
-                                        <img width="376" height="500"
-                                            src="https://quatvietnam.com.vn/wp-content/uploads/2021/06/V04001-1.png"
-                                            class="attachment-asiavina_product_thumbnail size-asiavina_product_thumbnail wp-post-image"
-                                            alt="V04001-SV0" loading="lazy"
-                                            srcset="https://quatvietnam.com.vn/wp-content/uploads/2021/06/V04001-1.png 376w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/V04001-1-226x300.png 226w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/V04001-1-75x100.png 75w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/V04001-1-150x200.png 150w"
-                                            sizes="(max-width: 376px) 100vw, 376px">
-                                    </div>
-                                </div>
-
-                                <div class="background" style="font-size: 0px;">
-                                    <div>Ventilation Fan</div>
-                                </div>
-                            </article>
-                        </label>
-                        <label data-id="slide2" for="product_slider_item_1_2">
-                            <article class="product product-slider-item">
-                                <div class="product-layout">
-                                    <div class="left-col">
-                                        <div class="category">
-                                            <a href="https://quatvietnam.com.vn/product-category/ventilation-fan/">Ventilation
-                                                Fan</a>
+                                        <div class="right-col thumbnail">
+                                            <img src="{{$r->images}}" alt="V04001-SV0" loading="lazy" width="376" height="500">
                                         </div>
-
-                                        <h2 class="title">H08001-SV0</h2>
-                                        <a class="seemore btn btn-theme"
-                                            href="https://quatvietnam.com.vn/product/h08001-sv0/">Information</a>
                                     </div>
-
-                                    <div class="right-col thumbnail">
-                                        <img width="376" height="500"
-                                            src="https://quatvietnam.com.vn/wp-content/uploads/2021/06/H08001-1.png"
-                                            class="attachment-asiavina_product_thumbnail size-asiavina_product_thumbnail wp-post-image"
-                                            alt="H08001-SV0" loading="lazy"
-                                            srcset="https://quatvietnam.com.vn/wp-content/uploads/2021/06/H08001-1.png 376w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/H08001-1-226x300.png 226w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/H08001-1-75x100.png 75w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/H08001-1-150x200.png 150w"
-                                            sizes="(max-width: 376px) 100vw, 376px">
+                                    <div class="background" style="font-size: 0px;">
+                                        <div>{{DB::table("categories")->where("id","=",$r->cateId)->first()->name}}</div>
                                     </div>
-                                </div>
-
-                                <div class="background" style="font-size: 0px;">
-                                    <div>Ventilation Fan</div>
-                                </div>
-                            </article>
-                        </label>
-                        <label data-id="slide3" for="product_slider_item_1_3">
-                            <article class="product product-slider-item">
-                                <div class="product-layout">
-                                    <div class="left-col">
-                                        <div class="category">
-                                            <a href="https://quatvietnam.com.vn/product-category/wall-fan/">Wall Fan</a>
-                                        </div>
-
-                                        <h2 class="title">L20002-DV0</h2>
-                                        <a class="seemore btn btn-theme"
-                                            href="https://quatvietnam.com.vn/product/l20002-dv0/">Information</a>
-                                    </div>
-
-                                    <div class="right-col thumbnail">
-                                        <img width="376" height="500"
-                                            src="https://quatvietnam.com.vn/wp-content/uploads/2021/06/L20002-DV0.png"
-                                            class="attachment-asiavina_product_thumbnail size-asiavina_product_thumbnail wp-post-image"
-                                            alt="L20002-DV0" loading="lazy"
-                                            srcset="https://quatvietnam.com.vn/wp-content/uploads/2021/06/L20002-DV0.png 376w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/L20002-DV0-226x300.png 226w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/L20002-DV0-75x100.png 75w, https://quatvietnam.com.vn/wp-content/uploads/2021/06/L20002-DV0-150x200.png 150w"
-                                            sizes="(max-width: 376px) 100vw, 376px">
-                                    </div>
-                                </div>
-                                <div class="background" style="font-size: 0px;">
-                                    <div>Wall Fan</div>
-                                </div>
-                            </article>
-                        </label>
+                                </article>
+                            </label>
+                        @endforeach
                     </section>
+
                     <div class="products-slider-seemore">
                         <a class="btn btn-outline-theme" href="{{url('shop')}}">
                             More Products
                             <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
-                    <script>
-                        (function(slider_id, count) {
-                            var ele = jQuery('.products-slider-container[data-id=' + slider_id + ']');
-
-                            ele.find('.background').fitText(0.6);
-
-                            ele.find('.products-slider-prev').click(function() {
-                                var r = ele.find('input:checked').prev();
-                                if (!r.is('[type=radio]')) r = ele.find('[type=radio]').last();
-                                r.prop("checked", true);
-                            });
-
-                            ele.find('.products-slider-next').click(function() {
-                                var r = ele.find('input:checked').next();
-                                if (!r.is('[type=radio]')) r = ele.find('[type=radio]').first();
-                                r.prop("checked", true);
-                            });
-                        })(1, 3);
-                    </script>
                 </div>
 
             </div>
@@ -256,6 +180,20 @@
             </div>
 
             <script>
+                (function(slider_id, count) {
+                    var ele = jQuery('.products-slider-container[data-id=' + slider_id + ']');
+                    ele.find('.background').fitText(0.6);
+                    ele.find('.products-slider-prev').click(function() {
+                        var r = ele.find('input:checked').prev();
+                        if (!r.is('[type=radio]')) r = ele.find('[type=radio]').last();
+                        r.prop("checked", true);
+                    });
+                    ele.find('.products-slider-next').click(function() {
+                        var r = ele.find('input:checked').next();
+                        if (!r.is('[type=radio]')) r = ele.find('[type=radio]').first();
+                        r.prop("checked", true);
+                    });
+                })(1, 3);
                 jQuery('.product-topics-container .product-topics-item').hide();
                 jQuery('.product-topics-container .product-topics-item').first().show();
 
@@ -646,7 +584,7 @@
 @endsection
 
 @section('custom-scripts')
-    <script type="text/javascript" src="{{ url('js/jquery.flexslider.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery/jquery.flexslider.min.js') }}"></script>
     <script type="text/javascript" id="metaslider-flex-slider-js-after">
         var metaslider = function($) {
             $('#metaslider').addClass('flexslider');
@@ -672,5 +610,5 @@
         };
         timer_metaslider();
     </script>
-    <script type="text/javascript" src="{{ url('js/jQuery.easing.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('js/jquery/jQuery.easing.min.js') }}"></script>
 @endsection

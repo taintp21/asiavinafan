@@ -10,22 +10,18 @@
         </h2>
         <div class="container">
             <div class="row row-cols-2 row-cols-lg-4">
-                @forelse ($products as $r)
+                @foreach ($products as $r)
                     <div class="col">
-                        <a class="single-product-permalink" href="{{url('/product/'.strtolower($r->name))}}">
-                            <article
-                                class="single-product-item product product-id-533 post-533 product type-product has-post-thumbnail product_cat-ventilation-fan">
-                                <h2 class="title">{{$r->name}}</h2>
-                                <div class="thumbnail"><img width="376" height="500"
-                                        src="{{$r->images}}"
-                                        class="attachment-asiavina_product_thumbnail size-asiavina_product_thumbnail wp-post-image" loading="lazy"></div>
+                        <a class="single-product-permalink" href="{{url('/product/'.strtolower(str_replace(" ", "+", $r->name)))}}">
+                            <article class="single-product-item">
+                                <h2 class="title">{{str_replace("+", " ", $r->name)}}</h2>
+                                <div class="thumbnail">
+                                    <img width="376" height="500" src="{{$r->images}}"loading="lazy"></div>
                                 <div class="btn btn-theme seemore">Information</div>
                             </article>
                         </a>
                     </div>
-                @empty
-
-                @endforelse
+                @endforeach
             </div>
         </div>
     </main>

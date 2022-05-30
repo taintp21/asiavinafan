@@ -42,8 +42,8 @@
                 @php $order++; @endphp
                 <tr>
                     <td>{{$order}}</td>
-                    <td>{{$r->title}}</td>
-                    <td>{{$r->slug}}</td>
+                    <td><span class="truncate">{{$r->title}}</span></td>
+                    <td><span class="truncate">{{$r->slug}}</span></td>
                     <td><img src="{{$r->image}}" height="100px"></td>
                     <td><span class="truncate">{!!$r->short_content!!}</span></td>
                     <td><span class="truncate">{!!$r->content!!}</span></td>
